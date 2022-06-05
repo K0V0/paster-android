@@ -5,4 +5,5 @@
     <string name="login_username">Používateľské meno</string>
     <string name="login_password">Heslo</string>
     <string name="login_submit">Prihlásiť sa</string>
+    <string name="login_fail_dialog_title">Prihlásenie neúspešné</string>
 </resources>

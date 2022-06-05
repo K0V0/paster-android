@@ -9,6 +9,8 @@ import space.kovo.paster.services.httpRequestService.HttpRequestService;
 import space.kovo.paster.services.httpRequestService.HttpRequestServiceImpl;
 import space.kovo.paster.services.jwtService.JwtService;
 import space.kovo.paster.services.jwtService.JwtServiceImpl;
+import space.kovo.paster.services.sharedPreferencesService.SharedPreferencesService;
+import space.kovo.paster.services.sharedPreferencesService.SharedPreferencesServiceImpl;
 
 public class LoginServiceImpl implements LoginService {
 
@@ -16,13 +18,15 @@ public class LoginServiceImpl implements LoginService {
     private static final String API_LOGIN_ENDPOINT = "https://api.paster.cloud/api/v1/user/login";
     private final Context context;
     private final HttpRequestService<LoginRequestDTO, LoginResponseDTO, LoginErrorResponseDTO> httpRequestService;
-    private final JwtService jwtService;
+    //private final JwtService jwtService;
+    private final SharedPreferencesService sharedPreferencesService;
     private LoginResponseHandler loginResponseHandler;
 
     public LoginServiceImpl(Context context) {
         this.context = context;
         this.httpRequestService = new HttpRequestServiceImpl<>(context, LoginResponseDTO.class, LoginErrorResponseDTO.class);
-        this.jwtService = new JwtServiceImpl();
+        //this.jwtService = new JwtServiceImpl();
+        this.sharedPreferencesService = new SharedPreferencesServiceImpl(context);
     }
 
     @Override
@@ -40,7 +44,10 @@ public class LoginServiceImpl implements LoginService {
         httpRequestService.postRequest(
                 API_LOGIN_ENDPOINT,
                 new LoginRequestDTO(userName, password));
-        httpRequestService.onSuccess(data -> loginResponseHandler.success(data));
+        httpRequestService.onSuccess(data -> {
+            sharedPreferencesService.save("jwtToken", data.getJwtToken());
+            loginResponseHandler.success(data);
+        });
         httpRequestService.onError(data -> loginResponseHandler.fail(data));
     }
 }

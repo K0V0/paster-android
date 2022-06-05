@@ -1,8 +1,8 @@
 package space.kovo.paster.dtos.loginDto;
 
-import space.kovo.paster.dtos.ResponseDTOimpl;
+import space.kovo.paster.dtos.ResponseDTO;
 
-public class LoginResponseDTO extends ResponseDTOimpl {
+public class LoginResponseDTO extends ResponseDTO {
 
     private String jwtToken;
 

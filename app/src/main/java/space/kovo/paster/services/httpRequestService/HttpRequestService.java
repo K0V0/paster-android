@@ -5,6 +5,8 @@ import org.json.JSONException;
 public interface HttpRequestService<REQ_DTO, RES_DTO, RES_ERR_DTO> {
 
     void postRequest(String url, REQ_DTO object) throws JSONException;
+
+    void addHeader(String key, String content);
     void onSuccess(HttpOKResponseHandler<RES_DTO> httpOKResponseHandler);
     void onError(HttpErrorResponseHandler<RES_ERR_DTO> httpErrorResponseHandler);
 

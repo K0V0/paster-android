@@ -19,6 +19,7 @@ public class HttpRequestServiceImpl<REQ_DTO, RES_DTO, RES_ERR_DTO> implements Ht
     private static final Gson gson = new Gson();
     private final Class<RES_DTO> responseDTOtype;
     private final Class<RES_ERR_DTO> responseErrorDTOtype;
+    private final Map<String, String> headers = new HashMap<>();
 
     private HttpOKResponseHandler<RES_DTO> httpOKResponseHandler;
     private HttpErrorResponseHandler<RES_ERR_DTO> httpErrorResponseHandler;
@@ -33,6 +34,11 @@ public class HttpRequestServiceImpl<REQ_DTO, RES_DTO, RES_ERR_DTO> implements Ht
     @Override
     public void postRequest(String url, REQ_DTO object) throws JSONException {
         getData(Request.Method.POST, url, object);
+    }
+
+    @Override
+    public void addHeader(String key, String content) {
+        headers.put(key, content);
     }
 
     @Override
@@ -52,7 +58,7 @@ public class HttpRequestServiceImpl<REQ_DTO, RES_DTO, RES_ERR_DTO> implements Ht
                 method,
                 url,
                 new JSONObject(gson.toJson(object)),
-                response ->  httpOKResponseHandler.onData(gson.fromJson(
+                response -> httpOKResponseHandler.onData(gson.fromJson(
                         response.toString(),
                         responseDTOtype)),
                 error -> httpErrorResponseHandler.onError(gson.fromJson(
@@ -61,9 +67,9 @@ public class HttpRequestServiceImpl<REQ_DTO, RES_DTO, RES_ERR_DTO> implements Ht
         ) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>(super.getHeaders());
-                params.put("x-auth-token", API_KEY);
-                return params;
+                headers.putAll(super.getHeaders());
+                headers.put("x-auth-token", API_KEY);
+                return headers;
             }
         };
 
