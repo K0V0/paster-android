@@ -1,4 +1,4 @@
-package space.kovo.paster.activities;
+package space.kovo.paster.activities.itemsActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
