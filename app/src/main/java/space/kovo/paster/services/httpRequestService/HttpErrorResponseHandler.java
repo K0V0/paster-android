@@ -1,6 +1,6 @@
 package space.kovo.paster.services.httpRequestService;
 
-public interface HttpErrorResponseHandler<ERR_RES_DTO> {
+public interface HttpErrorResponseHandler<RES_ERR_DTO> {
 
-    void onError(ERR_RES_DTO data);
+    void onError(RES_ERR_DTO data);
 }

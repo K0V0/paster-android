@@ -4,8 +4,8 @@ import android.content.Context;
 import android.widget.Button;
 import android.widget.EditText;
 import org.json.JSONException;
-import org.json.JSONObject;
 import space.kovo.paster.R;
+import space.kovo.paster.dtos.loginDto.LoginErrorResponseDTO;
 import space.kovo.paster.dtos.loginDto.LoginResponseDTO;
 import space.kovo.paster.services.loginService.LoginResponseHandler;
 import space.kovo.paster.services.loginService.LoginService;
@@ -42,7 +42,7 @@ public class LoginActitivityActions {
                 System.out.println(response);
             }
             @Override
-            public void fail() {
+            public void fail(LoginErrorResponseDTO response) {
                 System.out.println("login failed");
             }
         });

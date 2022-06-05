@@ -21,7 +21,7 @@ public class LoginServiceImpl implements LoginService {
 
     public LoginServiceImpl(Context context) {
         this.context = context;
-        this.httpRequestService = new HttpRequestServiceImpl<>(context);
+        this.httpRequestService = new HttpRequestServiceImpl<>(context, LoginResponseDTO.class, LoginErrorResponseDTO.class);
         this.jwtService = new JwtServiceImpl();
     }
 
@@ -41,6 +41,6 @@ public class LoginServiceImpl implements LoginService {
                 API_LOGIN_ENDPOINT,
                 new LoginRequestDTO(userName, password));
         httpRequestService.onSuccess(data -> loginResponseHandler.success(data));
-        httpRequestService.onError(data -> loginResponseHandler.fail());
+        httpRequestService.onError(data -> loginResponseHandler.fail(data));
     }
 }

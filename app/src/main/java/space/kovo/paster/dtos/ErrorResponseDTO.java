@@ -1,6 +1,6 @@
 package space.kovo.paster.dtos;
 
-public class ErrorResponseDTO extends ResponseDTO {
+public class ErrorResponseDTO extends ResponseDTOimpl {
     protected String code;
     protected String message;
 
