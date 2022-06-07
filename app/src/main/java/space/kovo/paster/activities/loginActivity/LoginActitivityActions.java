@@ -7,13 +7,12 @@ import android.widget.EditText;
 import org.json.JSONException;
 import space.kovo.paster.R;
 import space.kovo.paster.activities.itemsActivity.ItemsActivity;
-import space.kovo.paster.dtos.loginDto.LoginErrorResponseDTO;
+import space.kovo.paster.dtos.DtoUtil;
+import space.kovo.paster.dtos.ErrorResponseDTO;
 import space.kovo.paster.dtos.loginDto.LoginResponseDTO;
 import space.kovo.paster.services.loginService.LoginResponseHandler;
 import space.kovo.paster.services.loginService.LoginService;
 import space.kovo.paster.services.loginService.LoginServiceImpl;
-import space.kovo.paster.services.sharedPreferencesService.SharedPreferencesService;
-import space.kovo.paster.services.sharedPreferencesService.SharedPreferencesServiceImpl;
 import space.kovo.paster.ui.dialog.Dialog;
 import space.kovo.paster.ui.dialog.DialogImpl;
 
@@ -49,9 +48,8 @@ public class LoginActitivityActions {
                 startItemsActivity();
             }
             @Override
-            public void fail(LoginErrorResponseDTO response) {
-                dialog.show(context.getResources().getString(R.string.login_fail_dialog_title),
-                        "tui bude text rozobrany z chybovej hlasky z backendu");
+            public void fail(ErrorResponseDTO response) {
+                dialog.show(context.getResources().getString(R.string.login_fail_dialog_title), DtoUtil.getErrorMessagesLinedText(response));
             }
         });
     }

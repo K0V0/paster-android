@@ -1,0 +1,34 @@
+package space.kovo.paster.dtos;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+public class DtoUtil {
+    private static final String NEW_LINE_DELIMITER = "\t";
+
+    public static List<String> getErrorMessagesList(ErrorResponseDTO dto) {
+        return Optional.ofNullable(dto)
+                .map(d -> {
+                    List<String> result = new ArrayList<>();
+                    /** form error */
+                    Optional.ofNullable(d.getMessage()).ifPresent(result::add);
+                    /** field errors */
+                    Optional.ofNullable(d.getErrors())
+                            .map(errors -> errors.values()
+                                    .stream()
+                                    .flatMap(v -> v.stream().map(ErrorResponseDTO::getMessage))
+                                    .collect(Collectors.toList()))
+                            .ifPresent(result::addAll);
+                    return result;
+                })
+                .orElseGet(ArrayList::new);
+    }
+
+    public static String getErrorMessagesLinedText(ErrorResponseDTO dto) {
+        return getErrorMessagesList(dto)
+                .stream()
+                .collect(Collectors.joining(NEW_LINE_DELIMITER));
+    }
+}
