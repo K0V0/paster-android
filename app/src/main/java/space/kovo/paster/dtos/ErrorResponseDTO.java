@@ -11,9 +11,9 @@ public class ErrorResponseDTO extends ResponseDTO {
 
     public ErrorResponseDTO() {}
 
-    public ErrorResponseDTO(FormErrorResponseDTO formErrorResponseDTO) {
-        this.code = formErrorResponseDTO.getCode();
-        this.message = formErrorResponseDTO.getMessage();
+    public ErrorResponseDTO(String code, String message) {
+        this.code = code;
+        this.message = message;
     }
 
     public ErrorResponseDTO(Map<String, List<ErrorResponseDTO>> errors) {

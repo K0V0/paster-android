@@ -29,19 +29,17 @@ public class LoginActitivityActions {
 
     public void registerSubmitListener() {
         Button button = ((LoginActivity) context).findViewById(R.id.loginButton);
-        button.setOnClickListener(v -> {
-            try {
-                login();
-            } catch (JSONException e) {
-                System.out.println("login attempt exception");
-            }
-        });
+        button.setOnClickListener(v -> login());
     }
 
-    private void login() throws JSONException {
-        loginService.logIn(
-                ((EditText) ((LoginActivity) context).findViewById(R.id.loginUserName)).getText().toString(),
-                ((EditText) ((LoginActivity) context).findViewById(R.id.loginPassword)).getText().toString());
+    private void login() {
+        try {
+            loginService.logIn(
+                    ((EditText) ((LoginActivity) context).findViewById(R.id.loginUserName)).getText().toString(),
+                    ((EditText) ((LoginActivity) context).findViewById(R.id.loginPassword)).getText().toString());
+        } catch (JSONException e) {
+            throw new LoginRequestSerializationException();
+        }
         loginService.on(new LoginResponseHandler() {
             @Override
             public void success(LoginResponseDTO response) {

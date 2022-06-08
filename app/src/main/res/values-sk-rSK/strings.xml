@@ -6,4 +6,7 @@
     <string name="login_password">Heslo</string>
     <string name="login_submit">Prihlásiť sa</string>
     <string name="login_fail_dialog_title">Prihlásenie neúspešné</string>
+    <string name="item_input_something">Pridať niečo...</string>
+    <string name="item_input_send">Odoslať</string>
+    <string name="item_delete">X</string>
 </resources>

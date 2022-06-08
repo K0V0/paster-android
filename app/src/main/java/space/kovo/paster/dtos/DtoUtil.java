@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class DtoUtil {
+public final class DtoUtil {
     private static final String NEW_LINE_DELIMITER = "\r\n";
+
+    private DtoUtil() {}
 
     public static List<String> getErrorMessagesList(ErrorResponseDTO dto) {
         return Optional.ofNullable(dto)

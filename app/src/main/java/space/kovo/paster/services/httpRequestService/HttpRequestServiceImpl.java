@@ -4,20 +4,14 @@ import android.content.Context;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
-import space.kovo.paster.dtos.ErrorResponseDTO;
-import space.kovo.paster.dtos.FormErrorResponseDTO;
 
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 import static space.kovo.paster.services.httpRequestService.HttpRequestServiceUtil.convertErrors;
 
@@ -42,6 +36,11 @@ public class HttpRequestServiceImpl<REQ_DTO, RES_DTO> implements HttpRequestServ
     }
 
     @Override
+    public void getRequest(String url) throws JSONException {
+        getData(Request.Method.GET, url, null);
+    }
+
+    @Override
     public void addHeader(String key, String content) {
         headers.put(key, content);
     }
@@ -62,15 +61,16 @@ public class HttpRequestServiceImpl<REQ_DTO, RES_DTO> implements HttpRequestServ
         JsonObjectRequest jsonRequest = new JsonObjectRequest(
                 method,
                 url,
-                new JSONObject(gson.toJson(object)),
+                object == null ? null : new JSONObject(gson.toJson(object)),
+                //new JSONObject(gson.toJson(object)),
                 response -> httpOKResponseHandler.onData(gson.fromJson(
                         response.toString(),
-                        responseDTOtype)),
+                                responseDTOtype)),
                 error -> {
                     try {
                         httpErrorResponseHandler.onError(convertErrors(error, gson));
                     } catch (JSONException e) {
-                        throw new RuntimeException(e);
+                        throw new ErrorResponseParsingException();
                     }
                 }
         ) {

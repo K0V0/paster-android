@@ -7,4 +7,38 @@
         android:layout_height="match_parent"
         tools:context=".activities.itemsActivity.ItemsActivity">
 
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:layout_margin="8dp">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="@string/item_input_something"
+                    android:ems="10"
+                    android:id="@+id/editTextTextPersonName" android:layout_weight="100"
+                    android:layout_marginRight="8dp"/>
+            <Button
+                    android:text="Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/button" android:layout_weight="1"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" tools:itemCount="20" android:id="@+id/itemsRecyclerView"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

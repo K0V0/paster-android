@@ -15,14 +15,12 @@ public class LoginServiceImpl implements LoginService {
     private static final String API_LOGIN_ENDPOINT = "https://api.paster.cloud/api/v1/user/login";
     private final Context context;
     private final HttpRequestService<LoginRequestDTO, LoginResponseDTO> httpRequestService;
-    //private final JwtService jwtService;
     private final SharedPreferencesService sharedPreferencesService;
     private LoginResponseHandler loginResponseHandler;
 
     public LoginServiceImpl(Context context) {
         this.context = context;
         this.httpRequestService = new HttpRequestServiceImpl<>(context, LoginResponseDTO.class);
-        //this.jwtService = new JwtServiceImpl();
         this.sharedPreferencesService = new SharedPreferencesServiceImpl(context);
     }
 
