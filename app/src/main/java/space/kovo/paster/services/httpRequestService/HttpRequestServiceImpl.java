@@ -68,7 +68,7 @@ public class HttpRequestServiceImpl<REQ_DTO, RES_DTO> implements HttpRequestServ
                         responseDTOtype)),
                 error -> {
                     try {
-                        httpErrorResponseHandler.onError(convertErrors(error));
+                        httpErrorResponseHandler.onError(convertErrors(error, gson));
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }

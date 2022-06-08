@@ -6,7 +6,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class DtoUtil {
-    private static final String NEW_LINE_DELIMITER = "\t";
+    private static final String NEW_LINE_DELIMITER = "\r\n";
 
     public static List<String> getErrorMessagesList(ErrorResponseDTO dto) {
         return Optional.ofNullable(dto)
