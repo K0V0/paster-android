@@ -1,4 +1,4 @@
-package space.kovo.paster.services.httpRequestService;
+package space.kovo.paster.services.httpService;
 
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;

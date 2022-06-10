@@ -1,6 +1,4 @@
-package space.kovo.paster.services.httpRequestService;
-
-import org.json.JSONObject;
+package space.kovo.paster.services.httpService;
 
 public interface HttpOKResponseHandler<RES_DTO> {
 

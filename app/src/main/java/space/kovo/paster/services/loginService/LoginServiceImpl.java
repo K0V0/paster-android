@@ -4,8 +4,8 @@ import android.content.Context;
 import org.json.JSONException;
 import space.kovo.paster.dtos.loginDto.LoginRequestDTO;
 import space.kovo.paster.dtos.loginDto.LoginResponseDTO;
-import space.kovo.paster.services.httpRequestService.HttpRequestService;
-import space.kovo.paster.services.httpRequestService.HttpRequestServiceImpl;
+import space.kovo.paster.services.httpService.HttpRequestService;
+import space.kovo.paster.services.httpService.HttpRequestServiceImpl;
 import space.kovo.paster.services.sharedPreferencesService.SharedPreferencesService;
 import space.kovo.paster.services.sharedPreferencesService.SharedPreferencesServiceImpl;
 

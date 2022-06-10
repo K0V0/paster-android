@@ -2,6 +2,8 @@ package space.kovo.paster.dtos.itemDto;
 
 import space.kovo.paster.dtos.ResponseDTO;
 
+import java.util.Objects;
+
 public class ItemResponseDTO extends ResponseDTO {
     private long id;
     private String text;
@@ -65,5 +67,10 @@ public class ItemResponseDTO extends ResponseDTO {
 
     public void setDeviceName(String deviceName) {
         this.deviceName = deviceName;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, timestamp);
     }
 }

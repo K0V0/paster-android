@@ -1,4 +1,4 @@
-package space.kovo.paster.services.httpRequestService;
+package space.kovo.paster.services.httpService;
 
 import android.content.Context;
 import com.android.volley.AuthFailureError;
@@ -13,7 +13,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-import static space.kovo.paster.services.httpRequestService.HttpRequestServiceUtil.convertErrors;
+import static space.kovo.paster.services.httpService.HttpRequestServiceUtil.convertErrors;
 
 public class HttpRequestServiceImpl<REQ_DTO, RES_DTO> implements HttpRequestService<REQ_DTO, RES_DTO> {
     private static final String API_KEY = "Sv2t75NiOktsxI023mdVA4hvzP0rUhfF";

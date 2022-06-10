@@ -1,4 +1,4 @@
-package space.kovo.paster.services.httpRequestService;
+package space.kovo.paster.services.httpService;
 
 public final class ErrorResponseParsingException extends RuntimeException {
     public ErrorResponseParsingException() {
