@@ -5,17 +5,23 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activities.loginActivity.LoginActivity" android:background="@color/sky_lighter">
+        tools:context=".activities.loginActivity.LoginActivity"
+        android:background="@color/sky_lighter">
 
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:gravity="center" android:background="@color/sky_lighter">
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="@color/sky_lighter">
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_margin="32dp" android:gravity="center"
-                android:background="@color/elements_lighter" android:padding="16dp">
+                android:layout_height="wrap_content"
+                android:layout_margin="32dp"
+                android:gravity="center"
+                android:background="@color/elements_lighter"
+                android:padding="16dp">
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -23,9 +29,13 @@
                     android:ems="10"
                     android:id="@+id/loginUserName"
                     android:layout_marginBottom="8dp"
-                    android:textColor="@color/black" android:hint="@string/login_username"
-                    android:textColorHint="@color/gray" android:layout_marginTop="8dp"
-                    android:backgroundTint="@color/black"/>
+                    android:textColor="@color/black"
+                    android:hint="@string/login_username"
+                    android:textColorHint="@color/gray"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/black"
+                    android:textCursorDrawable="@drawable/cursor_black"
+                    android:textColorHighlight="@color/white"/>
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -34,7 +44,10 @@
                     android:id="@+id/loginPassword"
                     android:layout_marginTop="8dp"
                     android:textColor="@color/black" android:hint="@string/login_password"
-                    android:textColorHint="@color/gray" android:backgroundTint="@color/black"/>
+                    android:textColorHint="@color/gray"
+                    android:backgroundTint="@color/black"
+                    android:textCursorDrawable="@drawable/cursor_black"
+                    android:textColorHighlight="@color/white"/>
             <Button
                     android:text="@string/login_submit"
                     android:layout_width="match_parent"

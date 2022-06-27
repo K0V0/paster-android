@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="sky_darker">#FFCAE7FD</color>
+    <color name="sky_lighter">#FFEBF6FF</color>
+    <color name="elements_lighter">#FFB0DDFF</color>
+    <color name="elements_darker">#FF7cc6fe</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="gray">#FF666666</color>
+</resources>
