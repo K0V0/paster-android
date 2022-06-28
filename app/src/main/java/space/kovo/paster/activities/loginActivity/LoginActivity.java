@@ -1,10 +1,10 @@
 package space.kovo.paster.activities.loginActivity;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import space.kovo.paster.R;
+import space.kovo.paster.activities.activity.BaseActivity;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
     private LoginActitivityActions actions;
 
     @Override

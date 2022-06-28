@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/cursor_black.xml" value="0.5927083333333333" />
         <entry key="app/src/main/res/drawable/cursor_color.xml" value="0.5770833333333333" />
         <entry key="app/src/main/res/drawable/cursor_white.xml" value="0.578125" />
         <entry key="app/src/main/res/layout/activity_items.xml" value="0.3072916666666667" />

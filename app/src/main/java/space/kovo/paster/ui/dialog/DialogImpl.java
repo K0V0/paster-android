@@ -11,6 +11,10 @@ public class DialogImpl implements Dialog {
         this.context = context;
     }
 
+
+    public void show(int title, int text) {
+        this.show(context.getResources().getString(title), context.getResources().getString(text));
+    }
     @Override
     public void show(String title, String text) {
         AlertDialog alertDialog = new AlertDialog.Builder(context).create();

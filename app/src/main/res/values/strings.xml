@@ -10,5 +10,8 @@
     <string name="item_input_something">Input something...</string>
     <string name="item_input_send">Send</string>
     <string name="item_delete">X</string>
+    <string name="app_no_internet_title">Not connected</string>
+    <string name="app_no_internet_text">"Your device seems not to be connected to the internet or internet connection is extremely poor. Please check the connection."
+    </string>
 
 </resources>

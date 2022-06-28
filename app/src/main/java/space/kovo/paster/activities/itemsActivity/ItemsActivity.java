@@ -1,10 +1,10 @@
 package space.kovo.paster.activities.itemsActivity;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import space.kovo.paster.R;
+import space.kovo.paster.activities.activity.BaseActivity;
 
-public class ItemsActivity extends AppCompatActivity {
+public class ItemsActivity extends BaseActivity {
 
     private ItemsActivityActions actions;
 

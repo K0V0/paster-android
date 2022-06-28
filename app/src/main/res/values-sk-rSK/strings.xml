@@ -9,4 +9,8 @@
     <string name="item_input_something">Pridať niečo...</string>
     <string name="item_input_send">Odoslať</string>
     <string name="item_delete">X</string>
+    <string name="app_no_internet_title">Nepripojené</string>
+    <string name="app_no_internet_text">Vaše zariadenie nie je pripojené k internetu alebo kvalita pripojenia je veľmi
+        nízka. Skontrolujte prosím pripojenie k internetu.
+    </string>
 </resources>

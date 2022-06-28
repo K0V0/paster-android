@@ -1,10 +1,10 @@
 package space.kovo.paster.activities.mainActivity;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import space.kovo.paster.R;
+import space.kovo.paster.activities.activity.BaseActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private MainActivityActions actions;
 
