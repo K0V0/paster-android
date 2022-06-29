@@ -9,10 +9,13 @@ import space.kovo.paster.services.httpService.HttpRequestServiceImpl;
 import space.kovo.paster.services.sharedPreferencesService.SharedPreferencesService;
 import space.kovo.paster.services.sharedPreferencesService.SharedPreferencesServiceImpl;
 
+import java.util.Optional;
+
 public class LoginServiceImpl implements LoginService {
 
     // TODO move somewhere to file with setting
     private static final String API_LOGIN_ENDPOINT = "https://api.paster.cloud/api/v1/user/login";
+    private static final String TOKEN_KEY_NAME = "jwtToken";
     private final Context context;
     private final HttpRequestService<LoginRequestDTO, LoginResponseDTO> httpRequestService;
     private final SharedPreferencesService sharedPreferencesService;
@@ -26,7 +29,9 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public boolean isLoggedIn() {
-        return false;
+        return Optional.ofNullable(sharedPreferencesService.getString(TOKEN_KEY_NAME))
+                .map(token -> !token.trim().equals(""))
+                .orElse(false);
     }
 
     @Override
@@ -40,9 +45,17 @@ public class LoginServiceImpl implements LoginService {
                 API_LOGIN_ENDPOINT,
                 new LoginRequestDTO(userName, password));
         httpRequestService.onSuccess(data -> {
-            sharedPreferencesService.save("jwtToken", data.getJwtToken());
+            sharedPreferencesService.save(TOKEN_KEY_NAME, data.getJwtToken());
             loginResponseHandler.success(data);
         });
-        httpRequestService.onError(data -> loginResponseHandler.fail(data));
+        httpRequestService.onError(data -> {
+            invalidateUser();
+            loginResponseHandler.fail(data);
+        });
+    }
+
+    @Override
+    public void invalidateUser() {
+        sharedPreferencesService.destroy(TOKEN_KEY_NAME);
     }
 }

@@ -27,4 +27,9 @@ public class SharedPreferencesServiceImpl implements SharedPreferencesService {
     public String getString(String key) {
         return sharedPreferences.getString(key, null);
     }
+
+    @Override
+    public void destroy(String key) {
+        save(key, "");
+    }
 }

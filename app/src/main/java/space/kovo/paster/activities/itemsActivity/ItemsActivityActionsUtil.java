@@ -2,10 +2,14 @@ package space.kovo.paster.activities.itemsActivity;
 
 import android.annotation.SuppressLint;
 import space.kovo.paster.dtos.itemDto.ItemResponseDTO;
+import space.kovo.paster.services.clipboardService.ClipboardService;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public final class ItemsActivityActionsUtil {
 
@@ -44,6 +48,21 @@ public final class ItemsActivityActionsUtil {
                         }
                     });
         }
+    }
+
+    public static void syncClipboard(List<ItemResponseDTO> presentData, List<ItemResponseDTO> incomingData, ClipboardService clipboardService) {
+        Optional.ofNullable(incomingData)
+                .filter(inData -> !inData.isEmpty())
+                .map(Collection::stream)
+                .orElseGet(Stream::empty)
+                .filter(presentData::contains)
+                .findFirst()
+                .ifPresent(data -> {
+                    String result = data.getText().trim();
+                    if (!result.equals("")) {
+                        clipboardService.addToClipboard(result);
+                    }
+                });
     }
 
 }

@@ -7,14 +7,21 @@ public class BaseActivity extends AppCompatActivity {
 
     protected BaseActivityRecievers recievers;
     protected BaseActivityActions actions;
+    protected BaseActivityBinders binders;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         recievers = new BaseActivityRecievers(this);
         actions = new BaseActivityActions(this);
+        binders = new BaseActivityBinders(this);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        binders.bindServices();
+    }
     @Override
     protected void onResume() {
         super.onResume();
@@ -26,5 +33,11 @@ public class BaseActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         recievers.unregisterRecievers();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        binders.unbindServices();
     }
 }

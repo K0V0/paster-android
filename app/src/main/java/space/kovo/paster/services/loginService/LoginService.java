@@ -7,5 +7,6 @@ public interface LoginService {
     boolean isLoggedIn();
     void on(LoginResponseHandler loginResponseHandler);
     void logIn(String userName, String password) throws JSONException;
+    void invalidateUser();
 
 }
