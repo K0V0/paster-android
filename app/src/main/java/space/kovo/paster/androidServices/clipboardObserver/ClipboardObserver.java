@@ -1,4 +1,4 @@
-package space.kovo.paster.backgroundServices.clipboardObserver;
+package space.kovo.paster.androidServices.clipboardObserver;
 
 import android.app.Service;
 import android.content.Intent;

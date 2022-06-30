@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-import space.kovo.paster.backgroundServices.incomingDataObserver.IncomingDataObserver;
+import space.kovo.paster.androidServices.incomingDataObserver.IncomingDataObserver;
 import space.kovo.paster.services.loginService.LoginService;
 import space.kovo.paster.services.loginService.LoginServiceImpl;
 

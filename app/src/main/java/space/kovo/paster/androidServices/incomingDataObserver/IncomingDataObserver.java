@@ -1,4 +1,4 @@
-package space.kovo.paster.backgroundServices.incomingDataObserver;
+package space.kovo.paster.androidServices.incomingDataObserver;
 
 import android.app.Service;
 import android.content.Intent;
@@ -17,9 +17,9 @@ import space.kovo.paster.services.itemService.ItemResponseHandler;
 import space.kovo.paster.services.itemService.ItemService;
 import space.kovo.paster.services.itemService.ItemServiceImpl;
 
-import static space.kovo.paster.backgroundServices.incomingDataObserver.IncomingDataObserverUtils.notifyViews;
-import static space.kovo.paster.backgroundServices.incomingDataObserver.IncomingDataObserverUtils.processResults;
-import static space.kovo.paster.backgroundServices.incomingDataObserver.IncomingDataObserverUtils.serveClipboard;
+import static space.kovo.paster.androidServices.incomingDataObserver.IncomingDataObserverUtils.notifyViews;
+import static space.kovo.paster.androidServices.incomingDataObserver.IncomingDataObserverUtils.processResults;
+import static space.kovo.paster.androidServices.incomingDataObserver.IncomingDataObserverUtils.serveClipboard;
 
 public class IncomingDataObserver extends Service {
 

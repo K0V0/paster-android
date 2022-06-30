@@ -59,6 +59,7 @@ public class BaseActivityRecievers {
         public void onReceive(Context context, Intent intent) {
             Log.d("baseActivityRecievers: networkChangeReciever", "network has changed");
             if (onPoorOrNoConnectionHandler != null) {
+                //TODO netestuje ci je pripojenie k internetu realne funkcne
                 if (!connectivityService.isConnectedToNetwork()) {
                     onPoorOrNoConnectionHandler.onPoorOrNoConnection();
                 }

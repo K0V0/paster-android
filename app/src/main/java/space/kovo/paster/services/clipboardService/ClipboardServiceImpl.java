@@ -6,6 +6,7 @@ import android.content.Context;
 
 public class ClipboardServiceImpl implements ClipboardService {
     private final Context context;
+    private String currentText;
 
     public ClipboardServiceImpl(Context context) {
         this.context = context;
@@ -13,9 +14,16 @@ public class ClipboardServiceImpl implements ClipboardService {
 
     @Override
     public void addToClipboard(String text) {
+        currentText = text;
         ClipboardManager clipboardManager = (ClipboardManager)
                 context.getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData clipData = ClipData.newPlainText("data", text);
         clipboardManager.setPrimaryClip(clipData);
     }
+
+    @Override
+    public String getCurrentText() {
+        return currentText;
+    }
+
 }

@@ -1,4 +1,4 @@
-package space.kovo.paster.backgroundServices.incomingDataObserver;
+package space.kovo.paster.androidServices.incomingDataObserver;
 
 import android.content.Context;
 import android.content.Intent;

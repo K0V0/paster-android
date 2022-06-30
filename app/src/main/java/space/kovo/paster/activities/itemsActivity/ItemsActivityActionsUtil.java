@@ -50,19 +50,19 @@ public final class ItemsActivityActionsUtil {
         }
     }
 
-    public static void syncClipboard(List<ItemResponseDTO> presentData, List<ItemResponseDTO> incomingData, ClipboardService clipboardService) {
-        Optional.ofNullable(incomingData)
-                .filter(inData -> !inData.isEmpty())
-                .map(Collection::stream)
-                .orElseGet(Stream::empty)
-                .filter(presentData::contains)
-                .findFirst()
-                .ifPresent(data -> {
-                    String result = data.getText().trim();
-                    if (!result.equals("")) {
-                        clipboardService.addToClipboard(result);
-                    }
-                });
-    }
+//    public static void syncClipboard(List<ItemResponseDTO> presentData, List<ItemResponseDTO> incomingData, ClipboardService clipboardService) {
+//        Optional.ofNullable(incomingData)
+//                .filter(inData -> !inData.isEmpty())
+//                .map(Collection::stream)
+//                .orElseGet(Stream::empty)
+//                .filter(presentData::contains)
+//                .findFirst()
+//                .ifPresent(data -> {
+//                    String result = data.getText().trim();
+//                    if (!result.equals("")) {
+//                        clipboardService.addToClipboard(result);
+//                    }
+//                });
+//    }
 
 }

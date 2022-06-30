@@ -18,12 +18,14 @@ public class ItemGlobalVariablesRepository implements ItemRepository {
 
     @Override
     public Optional<ItemResponseDTO> findLatest() {
-        return Optional.empty();
+        return Optional.ofNullable(GlobalVariables.getItems())
+                .filter(items -> items.size() > 0)
+                .map(items -> items.get(items.size() - 1));
     }
 
     @Override
     public ItemResponseDTO getLatest() {
-        return null;
+        return findLatest().orElse(null);
     }
 
     @Override

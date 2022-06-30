@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import space.kovo.paster.R;
@@ -23,10 +24,15 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView itemPreview;
+        private final LinearLayout itemPreviewWrapper;
+        private final TextView itemIdentificator;
 
         public ViewHolder(View view) {
             super(view);
             itemPreview = view.findViewById(R.id.itemPreview);
+            itemIdentificator = view.findViewById(R.id.itemIdentificator);
+            itemPreviewWrapper = view.findViewById(R.id.itemPreviewWrapper);
+            itemPreviewWrapper.setOnClickListener(ItemsAdapterListeners.copyToClipboardListener());
         }
     }
 
@@ -42,6 +48,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         ItemResponseDTO dto = data.get(position);
         viewHolder.itemPreview.setText(dto.getPreview());
+        viewHolder.itemIdentificator.setText(String.valueOf(dto.getId()));
     }
 
     @Override

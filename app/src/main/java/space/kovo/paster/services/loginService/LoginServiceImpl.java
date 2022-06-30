@@ -32,6 +32,7 @@ public class LoginServiceImpl implements LoginService {
         return Optional.ofNullable(sharedPreferencesService.getString(TOKEN_KEY_NAME))
                 .map(token -> !token.trim().equals(""))
                 .orElse(false);
+        //return false; //FIXME hack to get to login screen during testing
     }
 
     @Override

@@ -1,12 +1,16 @@
 package space.kovo.paster.services.websocketService;
 
 import android.content.Context;
+import android.util.Log;
 import org.json.JSONException;
 import space.kovo.paster.services.sharedPreferencesService.SharedPreferencesService;
 import space.kovo.paster.services.sharedPreferencesService.SharedPreferencesServiceImpl;
 
 public class WebsocketServiceImpl implements WebsocketService {
     //TODO move to some safe storage
+    private static final int CONNECTION_TIMEOUT = 10000;
+    private static final int CONNECTION_READ_TIMEOUT = 120000;
+    private static final int CONNECTION_RECONNECTION_DELAY = 5000;
     private static final String WEBSOCKET_ENDPOINT = "wss://api.paster.cloud/websocket";
     private static final String API_KEY = "Sv2t75NiOktsxI023mdVA4hvzP0rUhfF";
     private final Context context;
@@ -32,13 +36,12 @@ public class WebsocketServiceImpl implements WebsocketService {
 
     private void inits() {
         changesWatcherWebsocketClient.onTrigger(() -> {
-            System.out.println("metoda zavolanaaaaa");
-            System.out.println(this.changeTriggerHandler);
+            Log.d("websocketService: onTrigger()", "reconnected");
             this.changeTriggerHandler.on();
         });
-        changesWatcherWebsocketClient.setConnectTimeout(10000);
-        changesWatcherWebsocketClient.setReadTimeout(60000);
-        changesWatcherWebsocketClient.enableAutomaticReconnection(5000);
+        changesWatcherWebsocketClient.setConnectTimeout(CONNECTION_TIMEOUT);
+        changesWatcherWebsocketClient.setReadTimeout(CONNECTION_READ_TIMEOUT);
+        changesWatcherWebsocketClient.enableAutomaticReconnection(CONNECTION_RECONNECTION_DELAY);
         changesWatcherWebsocketClient.connect();
     }
 

@@ -14,8 +14,8 @@
             android:theme="@style/Theme.Pastercloud"
             android:networkSecurityConfig="@xml/network_security_config">
 
-        <service android:name=".backgroundServices.incomingDataObserver.IncomingDataObserver"/>
-        <service android:name=".backgroundServices.clipboardObserver.ClipboardObserver"/>
+        <service android:name=".androidServices.incomingDataObserver.IncomingDataObserver"/>
+        <service android:name=".androidServices.clipboardObserver.ClipboardObserver"/>
 
         <activity
                 android:name=".activities.itemsActivity.ItemsActivity"
