@@ -1,15 +1,16 @@
 package space.kovo.paster.activities.itemsActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import space.kovo.paster.R;
 import space.kovo.paster.dtos.itemDto.ItemResponseDTO;
+import space.kovo.paster.repositories.item.ItemRepository;
 import space.kovo.paster.services.clipboardService.ClipboardService;
+import space.kovo.paster.ui.dialog.Dialog;
 
-import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public final class ItemsActivityActionsUtil {
 
@@ -48,6 +49,17 @@ public final class ItemsActivityActionsUtil {
                         }
                     });
         }
+    }
+
+    public static void setClipboard(long itemId, ClipboardService clipboardService, ItemRepository itemRepository, Dialog dialog, Context context) {
+        itemRepository
+                .findById(itemId)
+                .ifPresent(item -> {
+                    clipboardService.addToClipboard(item.getText());
+                    dialog.show(
+                            context.getString(R.string.item_copied_to_clipboard),
+                            item.getPreview().length() < 128 ? item.getPreview() : item.getPreview().substring(0, 128) + "...");
+                });
     }
 
 //    public static void syncClipboard(List<ItemResponseDTO> presentData, List<ItemResponseDTO> incomingData, ClipboardService clipboardService) {

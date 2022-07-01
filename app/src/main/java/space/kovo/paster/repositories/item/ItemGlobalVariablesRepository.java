@@ -7,6 +7,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ItemGlobalVariablesRepository implements ItemRepository {
     @Override
@@ -31,6 +32,15 @@ public class ItemGlobalVariablesRepository implements ItemRepository {
     @Override
     public void saveAll(List<ItemResponseDTO> items) {
         GlobalVariables.setItems(items);
+    }
+
+    @Override
+    public Optional<ItemResponseDTO> findById(long itemId) {
+        return Optional.ofNullable(GlobalVariables.getItems())
+                .map(items -> items.stream())
+                .orElseGet(() -> Stream.empty())
+                .filter(item -> item.getId() == itemId)
+                .findFirst();
     }
 
     private static final Comparator<ItemResponseDTO> comparator = (f1, f2) -> {

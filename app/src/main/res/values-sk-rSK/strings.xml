@@ -13,4 +13,5 @@
     <string name="app_no_internet_text">Vaše zariadenie nie je pripojené k internetu alebo kvalita pripojenia je veľmi
         nízka. Skontrolujte prosím pripojenie k internetu.
     </string>
+    <string name="item_copied_to_clipboard">Položka skopírovaná do schránky</string>
 </resources>

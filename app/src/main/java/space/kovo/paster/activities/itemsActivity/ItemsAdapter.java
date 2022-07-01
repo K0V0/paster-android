@@ -22,17 +22,19 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
         this.data = data;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        private final ItemsAdapterListeners listeners;
         private final TextView itemPreview;
         private final LinearLayout itemPreviewWrapper;
         private final TextView itemIdentificator;
 
         public ViewHolder(View view) {
             super(view);
+            listeners = new ItemsAdapterListeners(context);
             itemPreview = view.findViewById(R.id.itemPreview);
             itemIdentificator = view.findViewById(R.id.itemIdentificator);
             itemPreviewWrapper = view.findViewById(R.id.itemPreviewWrapper);
-            itemPreviewWrapper.setOnClickListener(ItemsAdapterListeners.copyToClipboardListener());
+            itemPreviewWrapper.setOnClickListener(listeners.copyToClipboardListener());
         }
     }
 

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.util.Log;
+import space.kovo.paster.activities.activity.baseActivityRecieversHandlers.OnClipboardInsertHandler;
 import space.kovo.paster.activities.activity.baseActivityRecieversHandlers.OnNewDataHandler;
 import space.kovo.paster.activities.activity.baseActivityRecieversHandlers.OnPoorOrNoConnectionHandler;
 import space.kovo.paster.services.connectivityService.ConnectivityService;
@@ -16,6 +17,9 @@ public class BaseActivityRecievers {
     private final ConnectivityService connectivityService;
     private OnPoorOrNoConnectionHandler onPoorOrNoConnectionHandler;
     private OnNewDataHandler onNewDataHandler;
+    //TODO nazvoslovie premenny spojenych s touto akcoiu - nemusi byt jasne ci sa jedna o skopirovanie do schranky
+    // vyberom z poloziek v aplikacii alebo sa jedna o reakciu na skopirovanie do schranky vykonane inde v systeme
+    private OnClipboardInsertHandler onClipboardInsertHandler;
 
     public BaseActivityRecievers(Context context) {
         this.context = context;
@@ -46,6 +50,14 @@ public class BaseActivityRecievers {
         context.unregisterReceiver(newDataReceiver);
     }
 
+    public void registerInsertToClipboardReciever() {
+        context.registerReceiver(insertToClipboardReciever, new IntentFilter("itemsActivityActions.clipboard.insert"));
+    }
+
+    public void unregisterInsertToClipboardReciever() { context.unregisterReceiver(insertToClipboardReciever); }
+
+
+
     public void setOnPoorOrNoConnectionHandler(OnPoorOrNoConnectionHandler onPoorOrNoConnectionHandler) {
         this.onPoorOrNoConnectionHandler = onPoorOrNoConnectionHandler;
     }
@@ -53,6 +65,12 @@ public class BaseActivityRecievers {
     public void setOnNewDataHandler(OnNewDataHandler onNewDataHandler) {
         this.onNewDataHandler = onNewDataHandler;
     }
+
+    public void setOnClipboardInsertHandler(OnClipboardInsertHandler onClipboardInsertHandler) {
+        this.onClipboardInsertHandler = onClipboardInsertHandler;
+    }
+
+
 
     private BroadcastReceiver networkChangeReceiver = new BroadcastReceiver() {
         @Override
@@ -72,6 +90,15 @@ public class BaseActivityRecievers {
         public void onReceive(Context context, Intent intent) {
             Log.d("baseActivityRecievers: newDataReciever", "have new data");
             onNewDataHandler.onNewData();
+        }
+    };
+
+    private BroadcastReceiver insertToClipboardReciever = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            long itemId = intent.getLongExtra("idOfClipboardItem", 0);
+            Log.d("baseActivityRecievers: insertToClipboardReciever", String.format("item '%d' selected to clipboard", itemId));
+            onClipboardInsertHandler.onClipboardInsert(itemId);
         }
     };
 

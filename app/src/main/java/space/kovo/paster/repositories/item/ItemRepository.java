@@ -14,4 +14,6 @@ public interface ItemRepository {
     ItemResponseDTO getLatest();
 
     void saveAll(List<ItemResponseDTO> items);
+
+    Optional<ItemResponseDTO> findById(long itemId);
 }

@@ -14,12 +14,14 @@ public class ItemsActivity extends BaseActivity {
         setContentView(R.layout.activity_items);
         this.actions = new ItemsActivityActions(this);
         recievers.setOnNewDataHandler(() -> actions.refreshItems());
+        recievers.setOnClipboardInsertHandler((itemId) -> actions.sendItemToClipboard(itemId));
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         recievers.registerDataChangeReciever();
+        recievers.registerInsertToClipboardReciever();
         actions.refreshItems();
     }
 
@@ -27,5 +29,6 @@ public class ItemsActivity extends BaseActivity {
     protected void onPause() {
         super.onPause();
         recievers.unregisterDataChangeReciever();
+        recievers.unregisterInsertToClipboardReciever();
     }
 }
