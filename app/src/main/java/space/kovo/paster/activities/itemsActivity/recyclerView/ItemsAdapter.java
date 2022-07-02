@@ -1,4 +1,4 @@
-package space.kovo.paster.activities.itemsActivity;
+package space.kovo.paster.activities.itemsActivity.recyclerView;
 
 import android.content.Context;
 import android.view.LayoutInflater;

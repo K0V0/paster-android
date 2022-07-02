@@ -1,9 +1,10 @@
-package space.kovo.paster.activities.itemsActivity;
+package space.kovo.paster.activities.itemsActivity.actions;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import space.kovo.paster.R;
+import space.kovo.paster.activities.itemsActivity.recyclerView.ItemsAdapter;
 import space.kovo.paster.dtos.itemDto.ItemResponseDTO;
 import space.kovo.paster.repositories.item.ItemRepository;
 import space.kovo.paster.services.clipboardService.ClipboardService;
@@ -15,8 +16,6 @@ import java.util.stream.IntStream;
 
 public final class ItemsActivityActionsUtil {
     private static final int POPUP_COPIED_TO_CLIPBOARD_DELAY = 1000;
-
-    private ItemsActivityActionsUtil() {}
 
     @SuppressLint("NotifyDataSetChanged")
     static void syncData(List<ItemResponseDTO> presentData, List<ItemResponseDTO> incomingData, ItemsAdapter dataAdapter) {
@@ -53,7 +52,7 @@ public final class ItemsActivityActionsUtil {
         }
     }
 
-    public static void setClipboard(long itemId, ClipboardService clipboardService, ItemRepository itemRepository, Dialog dialog, Context context) {
+    static void setClipboard(long itemId, ClipboardService clipboardService, ItemRepository itemRepository, Dialog dialog, Context context) {
         itemRepository
                 .findById(itemId)
                 .ifPresent(item -> {

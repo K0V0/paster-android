@@ -1,11 +1,11 @@
-package space.kovo.paster.activities.itemsActivity;
+package space.kovo.paster.activities.itemsActivity.actions;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import space.kovo.paster.R;
+import space.kovo.paster.activities.itemsActivity.recyclerView.ItemsAdapter;
 import space.kovo.paster.dtos.itemDto.ItemResponseDTO;
 import space.kovo.paster.repositories.item.ItemGlobalVariablesRepository;
 import space.kovo.paster.repositories.item.ItemRepository;
@@ -18,8 +18,8 @@ import space.kovo.paster.utils.Logging;
 import java.util.ArrayList;
 import java.util.List;
 
-import static space.kovo.paster.activities.itemsActivity.ItemsActivityActionsUtil.setClipboard;
-import static space.kovo.paster.activities.itemsActivity.ItemsActivityActionsUtil.syncData;
+import static space.kovo.paster.activities.itemsActivity.actions.ItemsActivityActionsUtil.setClipboard;
+import static space.kovo.paster.activities.itemsActivity.actions.ItemsActivityActionsUtil.syncData;
 
 public class ItemsActivityActions {
 

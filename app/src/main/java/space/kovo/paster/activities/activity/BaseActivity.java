@@ -2,6 +2,9 @@ package space.kovo.paster.activities.activity;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import space.kovo.paster.utils.Logging;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -25,6 +28,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        EventBus.getDefault().register(this);
         recievers.registerRecievers();
         recievers.setOnPoorOrNoConnectionHandler(() -> actions.showDialogIfInternetNoneOrPoor());
     }
@@ -32,6 +36,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        EventBus.getDefault().unregister(this);
         recievers.unregisterRecievers();
     }
 
@@ -39,5 +44,10 @@ public class BaseActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         binders.unbindServices();
+    }
+
+    @Subscribe
+    public void onEventBus(Object event) {
+        Logging.log("BaseActivity: onEventBus()", "event received");
     }
 }

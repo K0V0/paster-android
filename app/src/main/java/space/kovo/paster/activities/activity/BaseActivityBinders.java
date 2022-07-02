@@ -16,7 +16,6 @@ public class BaseActivityBinders {
     private IncomingDataObserver incomingDataObserver;
     private boolean incomingDataObserverIsBound;
 
-
     public BaseActivityBinders(Context context) {
         this.context = context;
         this.loginService = new LoginServiceImpl(context);

@@ -39,8 +39,6 @@ Papp/src/main/java/space/kovo/paster/services/httpService/HttpRequestService.jav
 Tapp/src/main/java/space/kovo/paster/services/httpService/HttpRequestServiceUtil.java,8/d/8d172152a4f5ef29eb37399d4aeac8ef60fd4728
 ‡
 Wapp/src/main/java/space/kovo/paster/services/websocketService/ChangeTriggerHandler.java,d/6/d66d7f0c175796995b3d1422c91dbce66049003e
-@
-app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
 >
 app/.gitignore,5/1/51e1c5d383dfaa35e0e7e5873a0a99355a86880f
 F
