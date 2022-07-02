@@ -43,12 +43,14 @@ public class ItemGlobalVariablesRepository implements ItemRepository {
                 .findFirst();
     }
 
-    private static final Comparator<ItemResponseDTO> comparator = (f1, f2) -> {
+    private static final Comparator<ItemResponseDTO> comparator = (f2, f1) -> {
         if (f1.getTimestamp() > f2.getTimestamp()) {
-            return -1;
-        } else if (f1.getTimestamp() < f2.getTimestamp()) {
             return 1;
+        } else if (f1.getTimestamp() < f2.getTimestamp()) {
+            return -1;
+        } else {
+            if (f1.getId() == f2.getId()) { return 0; }
+            return f1.getId() < f2.getId() ? 1 : -1;
         }
-        return 0;
     };
 }

@@ -2,14 +2,14 @@ package space.kovo.paster.activities.itemsActivity.actions;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Handler;
 import space.kovo.paster.R;
 import space.kovo.paster.activities.itemsActivity.recyclerView.ItemsAdapter;
 import space.kovo.paster.dtos.itemDto.ItemResponseDTO;
 import space.kovo.paster.repositories.item.ItemRepository;
 import space.kovo.paster.services.clipboardService.ClipboardService;
-import space.kovo.paster.ui.dialog.Dialog;
+import space.kovo.paster.ui.notification.Notification;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -25,44 +25,47 @@ public final class ItemsActivityActionsUtil {
             dataAdapter.notifyDataSetChanged();
         } else {
             // handle presentData added
-            List<Integer> presentDataHashCodes = presentData.stream()
-                    .map(ItemResponseDTO::hashCode)
-                    .collect(Collectors.toList());
+            List<Integer> presentDataHashCodes = getHashCodes(presentData);
             List<ItemResponseDTO> dataToAdd = IntStream
                     .range(0, incomingData.size())
                     .filter(i -> !presentDataHashCodes.contains(incomingData.get(i).hashCode()))
                     .mapToObj(incomingData::get)
                     .collect(Collectors.toList());
             if (!dataToAdd.isEmpty()) {
-                presentData.addAll(dataToAdd);
-                dataAdapter.notifyItemRangeInserted(presentData.size(), dataToAdd.size());
+                dataToAdd.forEach(dt -> {
+                    presentData.add(0, dt);
+                    dataAdapter.notifyItemInserted(0);
+                });
             }
             // handle presentData removed
-            List<Integer> incomingDataHashCodes = incomingData.stream()
-                    .map(ItemResponseDTO::hashCode)
-                    .collect(Collectors.toList());
-            IntStream.range(0, presentData.size() - 1)
-                    .forEach(i -> {
-                        if (!incomingDataHashCodes.contains(presentData.get(i).hashCode())) {
-                            presentData.remove(i);
-                            dataAdapter.notifyItemRemoved(i);
-                            //dataAdapter.notifyItemRangeChanged(0, );
-                        }
+            List<Integer> incomingDataHashCodes = getHashCodes(incomingData);
+            presentData.stream()
+                    .filter(pd -> !incomingDataHashCodes.contains(pd.hashCode()))
+                    .map(pd -> presentData.indexOf(pd))
+                    .sorted(Comparator.reverseOrder())
+                    .forEach(pdIndex -> {
+                        presentData.remove((int) pdIndex);
+                        dataAdapter.notifyItemRemoved((int) pdIndex);
                     });
         }
     }
 
-    static void setClipboard(long itemId, ClipboardService clipboardService, ItemRepository itemRepository, Dialog dialog, Context context) {
+    static void setClipboard(long itemId, ClipboardService clipboardService, ItemRepository itemRepository, Notification notification, Context context) {
         itemRepository
                 .findById(itemId)
                 .ifPresent(item -> {
+                    String msg = String.format("%s:\n%s",
+                            context.getString(R.string.item_copied_to_clipboard),
+                            item.getPreview().length() < 128 ? item.getPreview() : item.getPreview().substring(0, 128) + "...");
                     clipboardService.addToClipboard(item.getText());
-                    new Handler().postDelayed(() -> {
-                        dialog.setTitle(R.string.item_copied_to_clipboard);
-                        dialog.setText(item.getPreview().length() < 128 ? item.getPreview() : item.getPreview().substring(0, 128) + "...");
-                        dialog.showAndClose();
-                    }, POPUP_COPIED_TO_CLIPBOARD_DELAY);
+                    notification.showWithDelay(msg);
                 });
+    }
+
+    private static List<Integer> getHashCodes(List<ItemResponseDTO> itemResponseDTOs) {
+        return itemResponseDTOs.stream()
+                .map(ItemResponseDTO::hashCode)
+                .collect(Collectors.toList());
     }
 
 //    public static void syncClipboard(List<ItemResponseDTO> presentData, List<ItemResponseDTO> incomingData, ClipboardService clipboardService) {

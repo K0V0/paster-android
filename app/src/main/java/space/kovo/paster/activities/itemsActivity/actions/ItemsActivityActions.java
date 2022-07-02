@@ -11,8 +11,8 @@ import space.kovo.paster.repositories.item.ItemGlobalVariablesRepository;
 import space.kovo.paster.repositories.item.ItemRepository;
 import space.kovo.paster.services.clipboardService.ClipboardService;
 import space.kovo.paster.services.clipboardService.ClipboardServiceImpl;
-import space.kovo.paster.ui.dialog.Dialog;
-import space.kovo.paster.ui.dialog.DialogImpl;
+import space.kovo.paster.ui.notification.Notification;
+import space.kovo.paster.ui.notification.NotificationImpl;
 import space.kovo.paster.utils.Logging;
 
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ public class ItemsActivityActions {
     private final Context context;
     private final ItemRepository itemRepository;
     private final ClipboardService clipboardService;
-    private final Dialog dialog;
+    private final Notification notification;
 
     private final RecyclerView itemsRecyclerView;
     private final ItemsAdapter itemsAdapter;
@@ -36,7 +36,7 @@ public class ItemsActivityActions {
         this.context = context;
         this.itemRepository = new ItemGlobalVariablesRepository();
         this.clipboardService = new ClipboardServiceImpl(context);
-        this.dialog = new DialogImpl(context);
+        this.notification = new NotificationImpl(context);
         this.items = new ArrayList<>();
         this.itemsAdapter = new ItemsAdapter(context, items);
         this.itemsRecyclerView = ((Activity) context).findViewById(R.id.itemsRecyclerView);
@@ -51,7 +51,7 @@ public class ItemsActivityActions {
 
     public void sendItemToClipboard(long itemId) {
         Logging.log("itemsActivityActions: sendItemToClipboard()", String.format("%d", itemId));
-        setClipboard(itemId, clipboardService, itemRepository, dialog, context);
+        setClipboard(itemId, clipboardService, itemRepository, notification, context);
     }
 
 }
