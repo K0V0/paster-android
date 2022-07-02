@@ -18,6 +18,12 @@ public class ItemsActivity extends BaseActivity {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        binders.bindIncomingDataObserver();
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         recievers.registerDataChangeReciever();
@@ -30,5 +36,11 @@ public class ItemsActivity extends BaseActivity {
         super.onPause();
         recievers.unregisterDataChangeReciever();
         recievers.unregisterInsertToClipboardReciever();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        binders.unbindIncomingDataObsever();
     }
 }

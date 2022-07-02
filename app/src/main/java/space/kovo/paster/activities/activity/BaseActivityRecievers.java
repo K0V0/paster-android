@@ -11,6 +11,7 @@ import space.kovo.paster.activities.activity.baseActivityRecieversHandlers.OnNew
 import space.kovo.paster.activities.activity.baseActivityRecieversHandlers.OnPoorOrNoConnectionHandler;
 import space.kovo.paster.services.connectivityService.ConnectivityService;
 import space.kovo.paster.services.connectivityService.ConnectivityServiceImpl;
+import space.kovo.paster.utils.Logging;
 
 public class BaseActivityRecievers {
     private final Context context;
@@ -35,6 +36,7 @@ public class BaseActivityRecievers {
     }
 
     public void registerNetworkChangeReciever() {
+        Logging.log("baseActivityRecievers: networkChangeReciever", "reciever registered");
         context.registerReceiver(networkChangeReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
     }
 
@@ -43,6 +45,7 @@ public class BaseActivityRecievers {
     }
 
     public void registerDataChangeReciever() {
+        Logging.log("baseActivityRecievers: dataChangeReciever", "reciever registered");
         context.registerReceiver(newDataReceiver, new IntentFilter("incomingDataObserver.data.new"));
     }
 
@@ -51,6 +54,7 @@ public class BaseActivityRecievers {
     }
 
     public void registerInsertToClipboardReciever() {
+        Logging.log("baseActivityRecievers: insertToClipboardReciever", "reciever registered");
         context.registerReceiver(insertToClipboardReciever, new IntentFilter("itemsActivityActions.clipboard.insert"));
     }
 
@@ -75,7 +79,7 @@ public class BaseActivityRecievers {
     private BroadcastReceiver networkChangeReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.d("baseActivityRecievers: networkChangeReciever", "network has changed");
+            Logging.log("baseActivityRecievers: networkChangeReciever", "network has changed");
             if (onPoorOrNoConnectionHandler != null) {
                 //TODO netestuje ci je pripojenie k internetu realne funkcne
                 if (!connectivityService.isConnectedToNetwork()) {
@@ -88,7 +92,7 @@ public class BaseActivityRecievers {
     private BroadcastReceiver newDataReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.d("baseActivityRecievers: newDataReciever", "have new data");
+            Logging.log("baseActivityRecievers: newDataReciever", "have new data");
             onNewDataHandler.onNewData();
         }
     };
@@ -97,7 +101,8 @@ public class BaseActivityRecievers {
         @Override
         public void onReceive(Context context, Intent intent) {
             long itemId = intent.getLongExtra("idOfClipboardItem", 0);
-            Log.d("baseActivityRecievers: insertToClipboardReciever", String.format("item '%d' selected to clipboard", itemId));
+            Logging.log("baseActivityRecievers: insertToClipboardReciever",
+                    String.format("item '%d' selected to clipboard", itemId));
             onClipboardInsertHandler.onClipboardInsert(itemId);
         }
     };

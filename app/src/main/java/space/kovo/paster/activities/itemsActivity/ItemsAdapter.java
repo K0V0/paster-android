@@ -34,7 +34,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
             itemPreview = view.findViewById(R.id.itemPreview);
             itemIdentificator = view.findViewById(R.id.itemIdentificator);
             itemPreviewWrapper = view.findViewById(R.id.itemPreviewWrapper);
-            itemPreviewWrapper.setOnClickListener(listeners.copyToClipboardListener());
+            view.setOnClickListener(listeners.copyToClipboardListener());
         }
     }
 

@@ -5,6 +5,7 @@ import android.util.Log;
 import org.json.JSONException;
 import space.kovo.paster.services.sharedPreferencesService.SharedPreferencesService;
 import space.kovo.paster.services.sharedPreferencesService.SharedPreferencesServiceImpl;
+import space.kovo.paster.utils.Logging;
 
 public class WebsocketServiceImpl implements WebsocketService {
     //TODO move to some safe storage
@@ -36,7 +37,7 @@ public class WebsocketServiceImpl implements WebsocketService {
 
     private void inits() {
         changesWatcherWebsocketClient.onTrigger(() -> {
-            Log.d("websocketService: onTrigger()", "reconnected");
+            Logging.log("websocketService: onTrigger()", "reconnected");
             this.changeTriggerHandler.on();
         });
         changesWatcherWebsocketClient.setConnectTimeout(CONNECTION_TIMEOUT);

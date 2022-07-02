@@ -16,6 +16,7 @@ import space.kovo.paster.services.clipboardService.ClipboardServiceImpl;
 import space.kovo.paster.services.itemService.ItemResponseHandler;
 import space.kovo.paster.services.itemService.ItemService;
 import space.kovo.paster.services.itemService.ItemServiceImpl;
+import space.kovo.paster.utils.Logging;
 
 import static space.kovo.paster.androidServices.incomingDataObserver.IncomingDataObserverUtils.notifyViews;
 import static space.kovo.paster.androidServices.incomingDataObserver.IncomingDataObserverUtils.processResults;
@@ -37,7 +38,7 @@ public class IncomingDataObserver extends Service {
 
     @Override
     public void onCreate() {
-        Log.d("backgroundService: IncomingDataObserver", "created");
+        Logging.log("backgroundService: IncomingDataObserver", "created");
         this.itemService = new ItemServiceImpl(getApplicationContext());
         this.itemRepository = new ItemGlobalVariablesRepository();
         this.clipboardService = new ClipboardServiceImpl(getApplicationContext());
@@ -52,33 +53,33 @@ public class IncomingDataObserver extends Service {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        Log.d("backgroundService: IncomingDataObserver", "binded");
+        Logging.log("backgroundService: IncomingDataObserver", "binded");
         return binder;
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d("backgroundService: IncomingDataObserver", "started");
+        Logging.log("backgroundService: IncomingDataObserver", "started");
         return START_STICKY;
     }
 
     @Override
     public void onDestroy() {
-        Log.d("backgroundService: IncomingDataObserver", "destroyed");
+        Logging.log("backgroundService: IncomingDataObserver", "destroyed");
     }
 
     private void inits() {
         itemService.on(new ItemResponseHandler() {
             @Override
             public void success(ItemsResponseDTO itemsResponseDTO) {
-                Log.d("backgroundService: IncomingDataObserver", "itemService: data loaded");
+                Logging.log("backgroundService: IncomingDataObserver", "itemService: data loaded");
                 processResults(itemsResponseDTO, itemRepository);
                 serveClipboard(itemsResponseDTO, itemRepository, clipboardService);
                 notifyViews(getApplicationContext());
             }
             @Override
             public void fail(ErrorResponseDTO itemErrorResponseDTO) {
-                Log.d("backgroundService: IncomingDataObserver", "itemService: data loading failed");
+                Logging.log("backgroundService: IncomingDataObserver", "itemService: data loading failed");
             }
         });
     }

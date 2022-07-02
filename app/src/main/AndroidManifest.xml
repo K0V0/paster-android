@@ -14,8 +14,10 @@
             android:theme="@style/Theme.Pastercloud"
             android:networkSecurityConfig="@xml/network_security_config">
 
-        <service android:name=".androidServices.incomingDataObserver.IncomingDataObserver"/>
-        <service android:name=".androidServices.clipboardObserver.ClipboardObserver"/>
+        <service android:name=".androidServices.incomingDataObserver.IncomingDataObserver"
+                 android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name=".androidServices.clipboardObserver.ClipboardObserver"
+                 android:permission="android.permission.BIND_JOB_SERVICE"/>
 
         <activity
                 android:name=".activities.itemsActivity.ItemsActivity"

@@ -13,6 +13,7 @@ import space.kovo.paster.services.clipboardService.ClipboardService;
 import space.kovo.paster.services.clipboardService.ClipboardServiceImpl;
 import space.kovo.paster.ui.dialog.Dialog;
 import space.kovo.paster.ui.dialog.DialogImpl;
+import space.kovo.paster.utils.Logging;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,12 +45,12 @@ public class ItemsActivityActions {
     }
 
     public void refreshItems() {
-        Log.d("itemsActivityActions: loadItems() size:", "" + itemRepository.getAll().size());
+        Logging.log("itemsActivityActions: refreshItems() size", "" + itemRepository.getAll().size());
         syncData(items, itemRepository.getAll(), itemsAdapter);
     }
 
     public void sendItemToClipboard(long itemId) {
-        Log.d("itemsActivityActions: sendItemToClipboard():", String.format("%d", itemId));
+        Logging.log("itemsActivityActions: sendItemToClipboard()", String.format("%d", itemId));
         setClipboard(itemId, clipboardService, itemRepository, dialog, context);
     }
 

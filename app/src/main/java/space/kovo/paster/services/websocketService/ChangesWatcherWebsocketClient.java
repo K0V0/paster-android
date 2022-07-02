@@ -1,6 +1,7 @@
 package space.kovo.paster.services.websocketService;
 
 import org.json.JSONException;
+import space.kovo.paster.utils.Logging;
 import tech.gusavila92.websocketclient.WebSocketClient;
 
 import java.net.URI;
@@ -18,7 +19,7 @@ public class ChangesWatcherWebsocketClient extends WebSocketClient {
 
     @Override
     public void onTextReceived(String message) {
-        System.out.println(message);
+        Logging.log("ChangesWatcherWebsocketClient: onTextRecieved()", "new data recieved");
         try {
             this.changeTriggerHandler.on();
         } catch (JSONException e) {

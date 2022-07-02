@@ -2,6 +2,7 @@ package space.kovo.paster.activities.itemsActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Handler;
 import space.kovo.paster.R;
 import space.kovo.paster.dtos.itemDto.ItemResponseDTO;
 import space.kovo.paster.repositories.item.ItemRepository;
@@ -13,6 +14,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public final class ItemsActivityActionsUtil {
+    private static final int POPUP_COPIED_TO_CLIPBOARD_DELAY = 1000;
 
     private ItemsActivityActionsUtil() {}
 
@@ -56,9 +58,11 @@ public final class ItemsActivityActionsUtil {
                 .findById(itemId)
                 .ifPresent(item -> {
                     clipboardService.addToClipboard(item.getText());
-                    dialog.show(
-                            context.getString(R.string.item_copied_to_clipboard),
-                            item.getPreview().length() < 128 ? item.getPreview() : item.getPreview().substring(0, 128) + "...");
+                    new Handler().postDelayed(() -> {
+                        dialog.setTitle(R.string.item_copied_to_clipboard);
+                        dialog.setText(item.getPreview().length() < 128 ? item.getPreview() : item.getPreview().substring(0, 128) + "...");
+                        dialog.showAndClose();
+                    }, POPUP_COPIED_TO_CLIPBOARD_DELAY);
                 });
     }
 
