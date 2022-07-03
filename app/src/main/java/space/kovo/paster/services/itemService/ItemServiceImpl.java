@@ -10,12 +10,12 @@ import space.kovo.paster.services.jwtService.JwtService;
 import space.kovo.paster.services.jwtService.JwtServiceImpl;
 import space.kovo.paster.services.sharedPreferencesService.SharedPreferencesService;
 import space.kovo.paster.services.sharedPreferencesService.SharedPreferencesServiceImpl;
-import space.kovo.paster.services.websocketService.ChangeTriggerHandler;
 import space.kovo.paster.services.websocketService.WebsocketService;
 import space.kovo.paster.services.websocketService.WebsocketServiceImpl;
 
 public class ItemServiceImpl implements ItemService {
-    private static final String ENDPOINT_URL = "https://api.paster.cloud/api/v1/board/items";
+    private static final String GET_ITEMS_ENDPOINT_URL = "https://api.paster.cloud/api/v1/board/items";
+    private static final String POST_ITEM_ENDPOINT_URL = "https://api.paster.cloud/api/v1/board/item";
     private final Context context;
     private final HttpRequestService<ItemRequestDTO, ItemsResponseDTO> httpRequestService;
     private final WebsocketService websocketService;
@@ -29,27 +29,44 @@ public class ItemServiceImpl implements ItemService {
         this.websocketService = new WebsocketServiceImpl(context);
         this.jwtService = new JwtServiceImpl();
         this.sharedPreferencesService = new SharedPreferencesServiceImpl(context);
-        inits();
+        this.inits();
+    }
+
+    @Override
+    public void startWebsocketWatchdog() {
+        websocketService.onTrigger(this::getItemsFromServer);
     }
 
     @Override
     public void loadItems() throws JSONException {
-        makeHttpRequest();
+        this.getItemsFromServer();
+    }
+
+    @Override
+    public void sendItem(String text) throws JSONException {
+        ItemRequestDTO itemRequestDTO = new ItemRequestDTO();
+        itemRequestDTO.setText(text);
+        this.sendItemToServer(itemRequestDTO);
     }
 
     @Override
     public void on(ItemResponseHandler itemResponseHandler) { this.itemResponseHandler = itemResponseHandler; }
 
     private void inits() {
-        websocketService.onTrigger(this::makeHttpRequest);
-    }
-
-    private void makeHttpRequest() throws JSONException {
         httpRequestService.addHeader(
                 "Authorization",
                 jwtService.prefixizeToken(sharedPreferencesService.getString("jwtToken")));
-        httpRequestService.getRequest(ENDPOINT_URL);
+    }
+
+    private void getItemsFromServer() throws JSONException {
+        httpRequestService.getRequest(GET_ITEMS_ENDPOINT_URL);
         httpRequestService.onSuccess(data -> itemResponseHandler.success(data));
         httpRequestService.onError(data -> itemResponseHandler.fail(data));
+    }
+
+    private void sendItemToServer(ItemRequestDTO itemRequestDTO) throws JSONException {
+        httpRequestService.postRequest(POST_ITEM_ENDPOINT_URL, itemRequestDTO);
+//        httpRequestService.onSuccess(data -> itemResponseHandler.success(data));
+//        httpRequestService.onError(data -> itemResponseHandler.fail(data));
     }
 }

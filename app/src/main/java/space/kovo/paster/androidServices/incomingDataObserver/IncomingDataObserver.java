@@ -4,7 +4,6 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
-import android.util.Log;
 import androidx.annotation.Nullable;
 import org.json.JSONException;
 import space.kovo.paster.dtos.ErrorResponseDTO;
@@ -45,6 +44,7 @@ public class IncomingDataObserver extends Service {
         inits();
         try {
             itemService.loadItems();
+            itemService.startWebsocketWatchdog();
         } catch (JSONException e) {
             //throw new RuntimeException(e);
         }

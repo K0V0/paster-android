@@ -24,6 +24,7 @@ public class ItemsActivity extends BaseActivity {
     protected void onStart() {
         super.onStart();
         binders.bindIncomingDataObserver();
+        binders.bindClipboardObserver();
     }
 
     @Override
@@ -41,6 +42,7 @@ public class ItemsActivity extends BaseActivity {
     protected void onStop() {
         super.onStop();
         binders.unbindIncomingDataObsever();
+        binders.unbindClipboardObserver();
     }
 
     @Override

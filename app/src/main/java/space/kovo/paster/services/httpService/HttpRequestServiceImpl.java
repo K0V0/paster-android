@@ -71,7 +71,6 @@ public class HttpRequestServiceImpl<REQ_DTO, RES_DTO> implements HttpRequestServ
                     method,
                     url,
                     object == null ? null : new JSONObject(gson.toJson(object)),
-                    //new JSONObject(gson.toJson(object)),
                     response -> httpOKResponseHandler.onData(gson.fromJson(
                             response.toString(),
                             responseDTOtype)),

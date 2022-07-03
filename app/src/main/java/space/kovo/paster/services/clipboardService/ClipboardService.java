@@ -5,4 +5,6 @@ public interface ClipboardService {
     void addToClipboard(String text);
 
     String getCurrentText();
+    void onAdd(ClipboardServiceChangeHandler changeHandler);
+    void startListener();
 }

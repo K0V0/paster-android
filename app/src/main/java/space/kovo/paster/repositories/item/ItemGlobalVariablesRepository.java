@@ -19,9 +19,9 @@ public class ItemGlobalVariablesRepository implements ItemRepository {
 
     @Override
     public Optional<ItemResponseDTO> findLatest() {
-        return Optional.ofNullable(GlobalVariables.getItems())
-                .filter(items -> items.size() > 0)
-                .map(items -> items.get(items.size() - 1));
+        return Optional.ofNullable(this.getAll())
+                .filter(items -> !items.isEmpty())
+                .map(items -> items.get(0));
     }
 
     @Override
@@ -41,6 +41,13 @@ public class ItemGlobalVariablesRepository implements ItemRepository {
                 .orElseGet(() -> Stream.empty())
                 .filter(item -> item.getId() == itemId)
                 .findFirst();
+    }
+
+    @Override
+    public boolean existByText(String text) {
+        return Optional.ofNullable(this.getAll())
+                .map(items -> items.stream().anyMatch(item -> item.getText().equals(text)))
+                .orElse(false);
     }
 
     private static final Comparator<ItemResponseDTO> comparator = (f2, f1) -> {

@@ -3,8 +3,6 @@
 	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 v
 Fapp/src/main/java/space/kovo/paster/dtos/loginDto/LoginRequestDTO.java,7/b/7bb401d1ca8e2e115f1074961eb4d2d99085c15d
-t
-Dapp/src/main/java/space/kovo/paster/dtos/itemDto/ItemRequestDTO.java,8/f/8fbf0b8bf94c8329fda439aff6d4cee7c0c9c7b6
 w
 Gapp/src/main/java/space/kovo/paster/dtos/loginDto/LoginResponseDTO.java,d/1/d1ed58ff0d390837611e75a11de20bc66464e820
 i
@@ -33,8 +31,6 @@ dapp/src/main/java/space/kovo/paster/activities/loginActivity/LoginRequestSerial
 [app/src/main/java/space/kovo/paster/services/httpService/ErrorResponseParsingException.java,5/8/58fcd1ca39a7693bbf474d8c30467943ee8f3a76
 †
 Vapp/src/main/java/space/kovo/paster/services/httpService/HttpErrorResponseHandler.java,0/0/00f14d4d985dc6c978e721822995c740651c3686
-€
-Papp/src/main/java/space/kovo/paster/services/httpService/HttpRequestService.java,c/5/c5e279e98729d29380c0426dd293187c8f3d23e8
 „
 Tapp/src/main/java/space/kovo/paster/services/httpService/HttpRequestServiceUtil.java,8/d/8d172152a4f5ef29eb37399d4aeac8ef60fd4728
 ‡
@@ -78,8 +74,6 @@ Yapp/src/main/java/space/kovo/paster/services/connectivityService/ConnectivitySe
 ]app/src/main/java/space/kovo/paster/services/connectivityService/ConnectivityServiceImpl.java,4/9/497fc4ba3af8d4385ad14ea63d34349ba2bccebe
 ƒ
 Sapp/src/main/java/space/kovo/paster/services/websocketService/WebsocketService.java,2/5/2598fd20018e965fe936df471a37cd451f8cd9d3
-y
-Iapp/src/main/java/space/kovo/paster/services/itemService/ItemService.java,3/f/3fdd3b2bf811e4b7963d671135e4c9b5e8e5335a
 {
 Kapp/src/main/java/space/kovo/paster/services/loginService/LoginService.java,5/f/5fb7f185c1cab635d735a8ce7fd7a5b451016664
 “
@@ -90,12 +84,8 @@ gapp/src/main/java/space/kovo/paster/services/sharedPreferencesService/SharedPre
 Tapp/src/main/java/space/kovo/paster/activities/mainActivity/MainActivityActions.java,4/a/4a1ce3572ece00ffcda254e0425bd4fb7349bbee
 u
 Eapp/src/main/java/space/kovo/paster/dtos/itemDto/ItemResponseDTO.java,5/6/56e02373caa18a40246be62aa258def1d4b68e23
-Œ
-\app/src/main/java/space/kovo/paster/androidServices/clipboardObserver/ClipboardObserver.java,2/8/285c00bda88ecfbe6efda0eaed4dc98954819fad
 ‘
 aapp/src/main/java/space/kovo/paster/androidServices/clipboardObserver/ClipboardObserverUtils.java,3/8/38f9b5871b4c38054e5bf8eeb8e46a6bb49a9e2c
-ƒ
-Sapp/src/main/java/space/kovo/paster/services/clipboardService/ClipboardService.java,0/7/07aa1264426cc64b9fa29b3a4b8c4ac68587dd3c
 
 Oapp/src/main/java/space/kovo/paster/services/loginService/LoginServiceImpl.java,7/b/7b1ca2a4e069bc8ca3ab8516315b4658e37d8bcf
 ›
@@ -104,7 +94,5 @@ kapp/src/main/java/space/kovo/paster/activities/activity/baseActivityRecieversHa
 vapp/src/main/java/space/kovo/paster/activities/activity/baseActivityRecieversHandlers/OnPoorOrNoConnectionHandler.java,1/2/124ac8e627181595388e2881154f49dce647b316
 €
 Papp/src/main/java/space/kovo/paster/activities/activity/BaseActivityActions.java,1/8/1874538c61196732e3387e9e009cf8e489d6ad28
-‡
-Wapp/src/main/java/space/kovo/paster/services/clipboardService/ClipboardServiceImpl.java,1/3/139f3f1d8f1d9ffe529607448a4bde59aee2c051
 £
 sapp/src/main/java/space/kovo/paster/activities/activity/baseActivityRecieversHandlers/OnClipboardInsertHandler.java,d/f/dfc74dbf3bf4095d3ac6b2fa2e44735cadefd96a

@@ -16,4 +16,6 @@ public interface ItemRepository {
     void saveAll(List<ItemResponseDTO> items);
 
     Optional<ItemResponseDTO> findById(long itemId);
+
+    boolean existByText(String text);
 }
