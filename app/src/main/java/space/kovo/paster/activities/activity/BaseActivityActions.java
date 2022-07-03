@@ -17,4 +17,8 @@ public class BaseActivityActions {
     public void showDialogIfInternetNoneOrPoor() {
         dialog.show(R.string.app_no_internet_title, R.string.app_no_internet_text);
     }
+
+    public void sendItemToServer(String text) {
+
+    }
 }

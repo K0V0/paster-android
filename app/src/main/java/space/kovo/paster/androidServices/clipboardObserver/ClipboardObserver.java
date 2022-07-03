@@ -13,7 +13,6 @@ import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import org.greenrobot.eventbus.EventBus;
 import org.json.JSONException;
-import space.kovo.paster.R;
 import space.kovo.paster.repositories.item.ItemGlobalVariablesRepository;
 import space.kovo.paster.repositories.item.ItemRepository;
 import space.kovo.paster.services.clipboardService.ClipboardService;

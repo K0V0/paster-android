@@ -1,5 +1,6 @@
 package space.kovo.paster.activities.mainActivity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import space.kovo.paster.activities.itemsActivity.ItemsActivity;
@@ -8,15 +9,16 @@ import space.kovo.paster.services.connectivityService.ConnectivityService;
 import space.kovo.paster.services.connectivityService.ConnectivityServiceImpl;
 import space.kovo.paster.services.loginService.LoginService;
 import space.kovo.paster.services.loginService.LoginServiceImpl;
+import space.kovo.paster.utils.Logging;
+
+import java.util.Optional;
 
 public class MainActivityActions {
-    private final ConnectivityService connectivityService;
     private final LoginService loginService;
     private final Context context;
 
     public MainActivityActions(Context context) {
         this.context = context;
-        this.connectivityService = new ConnectivityServiceImpl(context);
         this.loginService = new LoginServiceImpl(context);
     }
 
@@ -35,6 +37,15 @@ public class MainActivityActions {
 
     private void startItemsActivity() {
         Intent intent = new Intent(context, ItemsActivity.class);
+        getDataFromShareActionResult().ifPresent(text -> intent.putExtra("newItem", text));
         context.startActivity(intent);
+    }
+
+    private Optional<String> getDataFromShareActionResult() {
+        return Optional.ofNullable(((Activity)context).getIntent())
+                .filter(i -> i.getAction().equals("android.intent.action.SEND"))
+                .filter(i -> i.getType() != null)
+                .filter(i -> i.getType().equals("text/plain"))
+                .map(i -> i.getStringExtra("android.intent.extra.TEXT"));
     }
 }

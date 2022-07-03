@@ -54,8 +54,8 @@ public class ItemsActivityActions {
         setClipboard(itemId, clipboardService, itemRepository, notification, context);
     }
 
-//    public void sendItemToServer(String text) {
-//
-//    }
+    public void sendItemToServer(String text) {
+
+    }
 
 }

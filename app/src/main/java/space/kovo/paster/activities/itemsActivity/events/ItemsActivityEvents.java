@@ -1,6 +1,9 @@
 package space.kovo.paster.activities.itemsActivity.events;
 
 import android.content.Context;
+import space.kovo.paster.activities.itemsActivity.events.handlers.ItemsActivityClipboardChangeEventHandler;
+import space.kovo.paster.activities.itemsActivity.events.handlers.ItemsActivityItemSetToClipboardEventHandler;
+import space.kovo.paster.activities.itemsActivity.events.handlers.ItemsActivityNewItemsEventHandler;
 import space.kovo.paster.activities.itemsActivity.recyclerView.ItemsAdapterSetToClipboardEvent;
 import space.kovo.paster.androidServices.clipboardObserver.ClipboardObserverEvent;
 import space.kovo.paster.androidServices.incomingDataObserver.IncomingDataObserverEvent;
@@ -37,6 +40,8 @@ public class ItemsActivityEvents {
     }
 
     public void onClipboardChange(ItemsActivityClipboardChangeEventHandler onClipChange) { this.onClipChange = onClipChange; }
+
+
 
     private void handleNewItems(IncomingDataObserverEvent e) {
         Optional.ofNullable(e)

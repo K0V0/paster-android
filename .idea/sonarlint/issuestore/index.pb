@@ -80,8 +80,6 @@ Kapp/src/main/java/space/kovo/paster/services/loginService/LoginService.java,5/
 capp/src/main/java/space/kovo/paster/services/sharedPreferencesService/SharedPreferencesService.java,e/5/e53b44f798ed13a7d5d3be3038747a3b404a3e43
 —
 gapp/src/main/java/space/kovo/paster/services/sharedPreferencesService/SharedPreferencesServiceImpl.java,5/2/52c0be2eed91ff92f7d0a456d192a7d4ffa2a2cf
-„
-Tapp/src/main/java/space/kovo/paster/activities/mainActivity/MainActivityActions.java,4/a/4a1ce3572ece00ffcda254e0425bd4fb7349bbee
 u
 Eapp/src/main/java/space/kovo/paster/dtos/itemDto/ItemResponseDTO.java,5/6/56e02373caa18a40246be62aa258def1d4b68e23
 ‘
@@ -92,7 +90,5 @@ Oapp/src/main/java/space/kovo/paster/services/loginService/LoginServiceImpl.java
 kapp/src/main/java/space/kovo/paster/activities/activity/baseActivityRecieversHandlers/OnNewDataHandler.java,e/0/e0b27d9029fce46ffa98acc997a45888b47aa14b
 ¦
 vapp/src/main/java/space/kovo/paster/activities/activity/baseActivityRecieversHandlers/OnPoorOrNoConnectionHandler.java,1/2/124ac8e627181595388e2881154f49dce647b316
-€
-Papp/src/main/java/space/kovo/paster/activities/activity/BaseActivityActions.java,1/8/1874538c61196732e3387e9e009cf8e489d6ad28
 £
 sapp/src/main/java/space/kovo/paster/activities/activity/baseActivityRecieversHandlers/OnClipboardInsertHandler.java,d/f/dfc74dbf3bf4095d3ac6b2fa2e44735cadefd96a

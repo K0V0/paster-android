@@ -1,5 +1,6 @@
 package space.kovo.paster.activities.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import org.greenrobot.eventbus.EventBus;
@@ -16,6 +17,8 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         recievers = new BaseActivityRecievers(this);
+        recievers.setOnPoorOrNoConnectionHandler(() -> actions.showDialogIfInternetNoneOrPoor());
+//        recievers.setOnShareActionContentRecievedHandler((text) -> {});
         actions = new BaseActivityActions(this);
         binders = new BaseActivityBinders(this);
     }
@@ -30,7 +33,6 @@ public class BaseActivity extends AppCompatActivity {
         super.onResume();
         EventBus.getDefault().register(this);
         recievers.registerRecievers();
-        recievers.setOnPoorOrNoConnectionHandler(() -> actions.showDialogIfInternetNoneOrPoor());
     }
 
     @Override
@@ -44,6 +46,12 @@ public class BaseActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         binders.unbindServices();
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
     }
 
     @Subscribe

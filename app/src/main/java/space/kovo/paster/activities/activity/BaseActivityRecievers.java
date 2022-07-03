@@ -14,10 +14,6 @@ public class BaseActivityRecievers {
     private final Context context;
     private final ConnectivityService connectivityService;
     private OnPoorOrNoConnectionHandler onPoorOrNoConnectionHandler;
-    //private OnNewDataHandler onNewDataHandler;
-    //TODO nazvoslovie premenny spojenych s touto akcoiu - nemusi byt jasne ci sa jedna o skopirovanie do schranky
-    // vyberom z poloziek v aplikacii alebo sa jedna o reakciu na skopirovanie do schranky vykonane inde v systeme
-    //private OnClipboardInsertHandler onClipboardInsertHandler;
 
     public BaseActivityRecievers(Context context) {
         this.context = context;
@@ -32,6 +28,8 @@ public class BaseActivityRecievers {
         unregisterNetworkChangeReciever();
     }
 
+
+
     public void registerNetworkChangeReciever() {
         Logging.log("baseActivityRecievers: networkChangeReciever", "reciever registered");
         context.registerReceiver(networkChangeReceiver, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
@@ -41,35 +39,9 @@ public class BaseActivityRecievers {
         context.unregisterReceiver(networkChangeReceiver);
     }
 
-//    public void registerDataChangeReciever() {
-//        Logging.log("baseActivityRecievers: dataChangeReciever", "reciever registered");
-//        context.registerReceiver(newDataReceiver, new IntentFilter("incomingDataObserver.data.new"));
-//    }
-
-//    public void unregisterDataChangeReciever() {
-//        context.unregisterReceiver(newDataReceiver);
-//    }
-
-//    public void registerInsertToClipboardReciever() {
-//        Logging.log("baseActivityRecievers: insertToClipboardReciever", "reciever registered");
-//        context.registerReceiver(insertToClipboardReciever, new IntentFilter("itemsActivityActions.clipboard.insert"));
-//    }
-//
-//    public void unregisterInsertToClipboardReciever() { context.unregisterReceiver(insertToClipboardReciever); }
-
-
-
     public void setOnPoorOrNoConnectionHandler(OnPoorOrNoConnectionHandler onPoorOrNoConnectionHandler) {
         this.onPoorOrNoConnectionHandler = onPoorOrNoConnectionHandler;
     }
-
-//    public void setOnNewDataHandler(OnNewDataHandler onNewDataHandler) {
-//        this.onNewDataHandler = onNewDataHandler;
-//    }
-
-//    public void setOnClipboardInsertHandler(OnClipboardInsertHandler onClipboardInsertHandler) {
-//        this.onClipboardInsertHandler = onClipboardInsertHandler;
-//    }
 
 
 
@@ -85,23 +57,5 @@ public class BaseActivityRecievers {
             }
         }
     };
-
-//    private BroadcastReceiver newDataReceiver = new BroadcastReceiver() {
-//        @Override
-//        public void onReceive(Context context, Intent intent) {
-//            Logging.log("baseActivityRecievers: newDataReciever", "have new data");
-//            onNewDataHandler.onNewData();
-//        }
-//    };
-
-//    private BroadcastReceiver insertToClipboardReciever = new BroadcastReceiver() {
-//        @Override
-//        public void onReceive(Context context, Intent intent) {
-//            long itemId = intent.getLongExtra("idOfClipboardItem", 0);
-//            Logging.log("baseActivityRecievers: insertToClipboardReciever",
-//                    String.format("item '%d' selected to clipboard", itemId));
-//            onClipboardInsertHandler.onClipboardInsert(itemId);
-//        }
-//    };
 
 }
