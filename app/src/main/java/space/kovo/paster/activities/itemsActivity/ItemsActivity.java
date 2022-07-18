@@ -17,7 +17,8 @@ public class ItemsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_items);
-        Logging.log(getIntent().getStringExtra("newItem"), "");
+        //String tst = getIntent().getStringExtra("newItem"); // OK
+        //Logging.log("get some intent", tst);  // OK
         this.actions = new ItemsActivityActions(this);
         this.events = new ItemsActivityEvents(this);
         this.intentResolver = new ItemsActivityIntentResolver(this);

@@ -55,7 +55,8 @@ public class ItemsActivityActions {
     }
 
     public void sendItemToServer(String text) {
-
+        //FIXME uz som zabudol, ale myslienka asi bola na zachytavanie intents mat background service z nejakeho dovodu
+        Logging.log("itemsActivityActions: sendItemToClipboard()", String.format("%s", text));
     }
 
 }
