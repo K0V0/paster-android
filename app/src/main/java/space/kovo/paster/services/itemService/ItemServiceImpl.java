@@ -65,8 +65,9 @@ public class ItemServiceImpl implements ItemService {
     }
 
     private void sendItemToServer(ItemRequestDTO itemRequestDTO) throws JSONException {
+        //TODO skumat uspesnost odoslania na server
         httpRequestService.postRequest(POST_ITEM_ENDPOINT_URL, itemRequestDTO);
-//        httpRequestService.onSuccess(data -> itemResponseHandler.success(data));
-//        httpRequestService.onError(data -> itemResponseHandler.fail(data));
+        httpRequestService.onSuccess(data -> {});
+        httpRequestService.onError(data -> {});
     }
 }

@@ -2,11 +2,13 @@ package space.kovo.paster.activities.itemsActivity.actions;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import org.json.JSONException;
 import space.kovo.paster.R;
 import space.kovo.paster.activities.itemsActivity.recyclerView.ItemsAdapter;
 import space.kovo.paster.dtos.itemDto.ItemResponseDTO;
 import space.kovo.paster.repositories.item.ItemRepository;
 import space.kovo.paster.services.clipboardService.ClipboardService;
+import space.kovo.paster.services.itemService.ItemService;
 import space.kovo.paster.ui.notification.Notification;
 
 import java.util.Comparator;
@@ -60,6 +62,15 @@ public final class ItemsActivityActionsUtil {
                     clipboardService.addToClipboard(item.getText());
                     notification.showWithDelay(msg);
                 });
+    }
+
+    static void sendToServer(String text, ItemService itemService) {
+        try {
+            itemService.sendItem(text);
+        } catch (JSONException e) {
+            //TODO mechanizmus na opakovanie podla typu vyhodenej exception
+            throw new RuntimeException(e);
+        }
     }
 
     private static List<Integer> getHashCodes(List<ItemResponseDTO> itemResponseDTOs) {

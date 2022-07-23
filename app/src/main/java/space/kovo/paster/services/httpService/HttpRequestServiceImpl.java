@@ -74,13 +74,7 @@ public class HttpRequestServiceImpl<REQ_DTO, RES_DTO> implements HttpRequestServ
                     response -> httpOKResponseHandler.onData(gson.fromJson(
                             response.toString(),
                             responseDTOtype)),
-                    error -> {
-                        try {
-                            httpErrorResponseHandler.onError(convertErrors(error, gson));
-                        } catch (JSONException e) {
-                            throw new ErrorResponseParsingException();
-                        }
-                    }
+                    error -> httpErrorResponseHandler.onError(convertErrors(error, gson))
             ) {
                 @Override
                 public Map<String, String> getHeaders() throws AuthFailureError {

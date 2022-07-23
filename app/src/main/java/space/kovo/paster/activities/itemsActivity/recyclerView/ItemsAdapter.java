@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import space.kovo.paster.R;
 import space.kovo.paster.dtos.itemDto.ItemResponseDTO;
@@ -22,6 +23,14 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
         this.data = data;
     }
 
+    public class Observer extends RecyclerView.AdapterDataObserver {
+
+        @Override
+        public void onItemRangeChanged(int positionStart, int itemCount) {
+            // do nothing
+        }
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         private final ItemsAdapterListeners listeners;
         private final TextView itemPreview;
@@ -36,6 +45,11 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
             itemPreviewWrapper = view.findViewById(R.id.itemPreviewWrapper);
             view.setOnClickListener(listeners.copyToClipboardListener());
         }
+
+
+        //@Override
+
+
     }
 
     @Override
@@ -43,7 +57,8 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
         // Create a new view, which defines the UI of the list item
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.item, viewGroup, false);
-        return new ViewHolder(view);
+        ViewHolder viewHolder = new ViewHolder(view);
+        return viewHolder;
     }
 
     @Override
@@ -52,6 +67,16 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
         viewHolder.itemPreview.setText(dto.getPreview());
         viewHolder.itemIdentificator.setText(String.valueOf(dto.getId()));
     }
+
+//    @Override
+//    public void registerAdapterDataObserver(@NonNull RecyclerView.AdapterDataObserver observer) {
+//        .registerObserver(observer);
+//    }
+
+//    @Override
+//    public void OnItemsAdded(@NonNull RecyclerView recyclerView, int positionStart, int itemCount) {
+//
+//    }
 
     @Override
     public int getItemCount() {
