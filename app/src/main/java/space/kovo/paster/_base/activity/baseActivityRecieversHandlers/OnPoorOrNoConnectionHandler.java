@@ -1,4 +1,4 @@
-package space.kovo.paster.activities.activity.baseActivityRecieversHandlers;
+package space.kovo.paster._base.activity.baseActivityRecieversHandlers;
 
 public interface OnPoorOrNoConnectionHandler {
 

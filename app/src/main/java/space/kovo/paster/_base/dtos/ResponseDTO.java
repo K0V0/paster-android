@@ -1,4 +1,4 @@
-package space.kovo.paster.dtos;
+package space.kovo.paster._base.dtos;
 
 public abstract class ResponseDTO {
     protected String status;

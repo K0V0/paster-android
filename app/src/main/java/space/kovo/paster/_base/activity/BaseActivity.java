@@ -1,4 +1,4 @@
-package space.kovo.paster.activities.activity;
+package space.kovo.paster._base.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,37 +16,33 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Logging.log(getIntent().getStringExtra("newItem"), "");
         recievers = new BaseActivityRecievers(this);
-        recievers.setOnPoorOrNoConnectionHandler(() -> actions.showDialogIfInternetNoneOrPoor());
-//        recievers.setOnShareActionContentRecievedHandler((text) -> {});
         actions = new BaseActivityActions(this);
         binders = new BaseActivityBinders(this);
+        inits();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        binders.bindServices();
     }
     @Override
     protected void onResume() {
         super.onResume();
         EventBus.getDefault().register(this);
-        recievers.registerRecievers();
+        recievers.registerNetworkChangeReciever();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         EventBus.getDefault().unregister(this);
-        recievers.unregisterRecievers();
+        recievers.unregisterNetworkChangeReciever();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        binders.unbindServices();
     }
 
     @Override
@@ -58,5 +54,9 @@ public class BaseActivity extends AppCompatActivity {
     @Subscribe
     public void onEventBus(Object event) {
         Logging.log("BaseActivity: onEventBus()", "event received");
+    }
+
+    private void inits() {
+        recievers.setOnPoorOrNoConnectionHandler(() -> actions.showDialogIfInternetNoneOrPoor());
     }
 }

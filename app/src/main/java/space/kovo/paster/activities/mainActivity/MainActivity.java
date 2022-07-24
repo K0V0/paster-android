@@ -1,9 +1,8 @@
 package space.kovo.paster.activities.mainActivity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import space.kovo.paster.R;
-import space.kovo.paster.activities.activity.BaseActivity;
+import space.kovo.paster._base.activity.BaseActivity;
 
 public class MainActivity extends BaseActivity {
 

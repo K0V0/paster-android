@@ -9,5 +9,7 @@ public interface ItemService {
     void loadItems() throws JSONException;
     void sendItem(String text) throws JSONException;
 
+    void deleteItem(long itemId) throws JSONException;
+
     void on(ItemResponseHandler itemResponseHandler);
 }

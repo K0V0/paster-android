@@ -50,6 +50,11 @@ public class HttpRequestServiceImpl<REQ_DTO, RES_DTO> implements HttpRequestServ
     }
 
     @Override
+    public void deleteRequest(String url) throws JSONException {
+        getData(Request.Method.DELETE, url, null);
+    }
+
+    @Override
     public void addHeader(String key, String content) {
         headers.put(key, content);
     }

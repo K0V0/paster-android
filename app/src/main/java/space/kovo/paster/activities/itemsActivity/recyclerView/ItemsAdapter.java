@@ -4,9 +4,9 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import space.kovo.paster.R;
 import space.kovo.paster.dtos.itemDto.ItemResponseDTO;
@@ -36,6 +36,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
         private final TextView itemPreview;
         private final LinearLayout itemPreviewWrapper;
         private final TextView itemIdentificator;
+        private final Button deleteButton;
 
         public ViewHolder(View view) {
             super(view);
@@ -43,13 +44,14 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
             itemPreview = view.findViewById(R.id.itemPreview);
             itemIdentificator = view.findViewById(R.id.itemIdentificator);
             itemPreviewWrapper = view.findViewById(R.id.itemPreviewWrapper);
-            view.setOnClickListener(listeners.copyToClipboardListener());
+            deleteButton = view.findViewById(R.id.itemDelete);
+            inits(view);
         }
 
-
-        //@Override
-
-
+        private void inits(View view) {
+            view.setOnClickListener(listeners.copyToClipboardListener());
+            deleteButton.setOnClickListener(listeners.deleteItemListener(view));
+        }
     }
 
     @Override
@@ -57,8 +59,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
         // Create a new view, which defines the UI of the list item
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.item, viewGroup, false);
-        ViewHolder viewHolder = new ViewHolder(view);
-        return viewHolder;
+        return new ViewHolder(view);
     }
 
     @Override
@@ -67,16 +68,6 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
         viewHolder.itemPreview.setText(dto.getPreview());
         viewHolder.itemIdentificator.setText(String.valueOf(dto.getId()));
     }
-
-//    @Override
-//    public void registerAdapterDataObserver(@NonNull RecyclerView.AdapterDataObserver observer) {
-//        .registerObserver(observer);
-//    }
-
-//    @Override
-//    public void OnItemsAdded(@NonNull RecyclerView recyclerView, int positionStart, int itemCount) {
-//
-//    }
 
     @Override
     public int getItemCount() {

@@ -1,13 +1,10 @@
 package space.kovo.paster.androidServices.incomingDataObserver;
 
-public class IncomingDataObserverEvent {
-    private boolean hasNewData;
+import space.kovo.paster._base.eventBus.Event;
 
-    public boolean hasNewData() {
-        return hasNewData;
-    }
+public class IncomingDataObserverEvent extends Event<Boolean> {
 
-    public void setHasNewData(boolean hasNewData) {
-        this.hasNewData = hasNewData;
+    public IncomingDataObserverEvent(Boolean data) {
+        super(data);
     }
 }

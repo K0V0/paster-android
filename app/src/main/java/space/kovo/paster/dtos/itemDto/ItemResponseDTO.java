@@ -1,6 +1,6 @@
 package space.kovo.paster.dtos.itemDto;
 
-import space.kovo.paster.dtos.ResponseDTO;
+import space.kovo.paster._base.dtos.ResponseDTO;
 
 import java.util.Objects;
 

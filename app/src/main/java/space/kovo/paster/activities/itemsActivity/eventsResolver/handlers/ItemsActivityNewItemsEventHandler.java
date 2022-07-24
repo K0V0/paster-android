@@ -1,5 +1,7 @@
 package space.kovo.paster.activities.itemsActivity.eventsResolver.handlers;
 
-public interface ItemsActivityNewItemsEventHandler {
-    void apply();
+import space.kovo.paster._base.resolvers.EventsResolverEventHandler;
+
+public interface ItemsActivityNewItemsEventHandler extends EventsResolverEventHandler<Object> {
+    void apply(Object nothing);
 }

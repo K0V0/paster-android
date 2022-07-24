@@ -50,6 +50,11 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
+    public void deleteItem(long itemId) throws JSONException {
+        this.deleteItemFromServer(itemId);
+    }
+
+    @Override
     public void on(ItemResponseHandler itemResponseHandler) { this.itemResponseHandler = itemResponseHandler; }
 
     private void inits() {
@@ -67,6 +72,13 @@ public class ItemServiceImpl implements ItemService {
     private void sendItemToServer(ItemRequestDTO itemRequestDTO) throws JSONException {
         //TODO skumat uspesnost odoslania na server
         httpRequestService.postRequest(POST_ITEM_ENDPOINT_URL, itemRequestDTO);
+        httpRequestService.onSuccess(data -> {});
+        httpRequestService.onError(data -> {});
+    }
+
+    private void deleteItemFromServer(long itemId) throws JSONException {
+        httpRequestService.deleteRequest(String.format("%s/%s", POST_ITEM_ENDPOINT_URL, itemId));
+        //TODO handle errors
         httpRequestService.onSuccess(data -> {});
         httpRequestService.onError(data -> {});
     }

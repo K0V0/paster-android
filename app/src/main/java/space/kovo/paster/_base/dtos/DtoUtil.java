@@ -1,4 +1,6 @@
-package space.kovo.paster.dtos;
+package space.kovo.paster._base.dtos;
+
+import space.kovo.paster.dtos.ErrorResponseDTO;
 
 import java.util.ArrayList;
 import java.util.List;

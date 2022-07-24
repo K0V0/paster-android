@@ -1,7 +1,7 @@
 package space.kovo.paster.repositories.item;
 
 import space.kovo.paster.dtos.itemDto.ItemResponseDTO;
-import space.kovo.paster.repositories.GlobalVariables;
+import space.kovo.paster._base.GlobalVariables;
 
 import java.util.Comparator;
 import java.util.List;

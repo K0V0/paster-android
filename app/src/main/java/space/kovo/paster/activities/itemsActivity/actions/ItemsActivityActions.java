@@ -21,6 +21,7 @@ import space.kovo.paster.utils.Logging;
 import java.util.ArrayList;
 import java.util.List;
 
+import static space.kovo.paster.activities.itemsActivity.actions.ItemsActivityActionsUtil.deleteFromServer;
 import static space.kovo.paster.activities.itemsActivity.actions.ItemsActivityActionsUtil.sendToServer;
 import static space.kovo.paster.activities.itemsActivity.actions.ItemsActivityActionsUtil.setClipboard;
 import static space.kovo.paster.activities.itemsActivity.actions.ItemsActivityActionsUtil.syncData;
@@ -65,6 +66,11 @@ public class ItemsActivityActions {
         //FIXME uz som zabudol, ale myslienka asi bola na zachytavanie intents mat background service z nejakeho dovodu
         Logging.log("itemsActivityActions: sendItemToServer()", String.format("%s", text));
         sendToServer(text, itemService);
+    }
+
+    public void deleteItemFromServer(long itemId) {
+        Logging.log("itemsActivityActions: deleteItemFromServer()", String.format("%d", itemId));
+        deleteFromServer(itemId, itemService);
     }
 
 }

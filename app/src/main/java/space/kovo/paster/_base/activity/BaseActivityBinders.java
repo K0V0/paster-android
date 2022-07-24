@@ -1,4 +1,4 @@
-package space.kovo.paster.activities.activity;
+package space.kovo.paster._base.activity;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -23,10 +23,6 @@ public class BaseActivityBinders {
         this.context = context;
         this.loginService = new LoginServiceImpl(context);
     }
-
-    public void bindServices() {}
-
-    public void unbindServices() {}
 
 
 
@@ -66,8 +62,7 @@ public class BaseActivityBinders {
 
     private final ServiceConnection incomingDataObserverServiceConnection = new ServiceConnection() {
         @Override
-        public void onServiceConnected(ComponentName className,
-                                       IBinder service) {
+        public void onServiceConnected(ComponentName className, IBinder service) {
             IncomingDataObserver.IncomingDataObserverBinder binder = (IncomingDataObserver.IncomingDataObserverBinder) service;
             incomingDataObserver = binder.getIncomingDataObserver();
             incomingDataObserverIsBound = true;
@@ -80,8 +75,7 @@ public class BaseActivityBinders {
 
     private final ServiceConnection clipboardObserverServiceConnection = new ServiceConnection() {
         @Override
-        public void onServiceConnected(ComponentName className,
-                                       IBinder service) {
+        public void onServiceConnected(ComponentName className, IBinder service) {
             ClipboardObserver.ClipboardObserverBinder binder = (ClipboardObserver.ClipboardObserverBinder) service;
             clipboardObserver = binder.getIncomingDataObserver();
             clipboardObserverIsBound = true;

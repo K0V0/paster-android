@@ -1,5 +1,7 @@
 package space.kovo.paster.activities.itemsActivity.eventsResolver.handlers;
 
-public interface ItemsActivityItemSetToClipboardEventHandler {
-    void apply(long itemId);
+import space.kovo.paster._base.resolvers.EventsResolverEventHandler;
+
+public interface ItemsActivityItemSetToClipboardEventHandler extends EventsResolverEventHandler<Long> {
+    void apply(Long itemId);
 }

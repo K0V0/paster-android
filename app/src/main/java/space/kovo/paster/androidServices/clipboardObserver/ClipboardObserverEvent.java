@@ -1,19 +1,10 @@
 package space.kovo.paster.androidServices.clipboardObserver;
 
-public class ClipboardObserverEvent {
-    private String text;
+import space.kovo.paster._base.eventBus.Event;
 
-    public ClipboardObserverEvent() {}
+public class ClipboardObserverEvent extends Event<String> {
 
-    public ClipboardObserverEvent(String text) {
-        this.text = text;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
+    public ClipboardObserverEvent(String data) {
+        super(data);
     }
 }

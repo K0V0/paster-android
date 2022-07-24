@@ -1,27 +1,24 @@
 package space.kovo.paster.activities.itemsActivity.intentResolver;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
+import space.kovo.paster._base.resolvers.IntentResolver;
 import space.kovo.paster.activities.itemsActivity.ItemsActivity;
 import space.kovo.paster.activities.itemsActivity.intentResolver.handlers.OnSharedContentIncomingHandler;
 import space.kovo.paster.utils.Logging;
 
 import java.util.Optional;
 
-public class ItemsActivityIntentResolver {
-    private final static String NEW_ITEM_INTENT = "newItem";
-    private final Context context;
-    private final Intent intent;
+public class ItemsActivityIntentResolver extends IntentResolver {
+    private static final String NEW_ITEM_INTENT = "newItem";
+
     private OnSharedContentIncomingHandler onSharedContentIncomingHandler;
 
     public ItemsActivityIntentResolver(Context context) {
-        this.context = context;
-        this.intent = ((ItemsActivity)context).getIntent();
+        super(context, ((ItemsActivity)context).getIntent());
     }
 
     public void handle() {
-        Optional.ofNullable(intent)
+        Optional.ofNullable(super.intent)
                 .filter(i -> i.getExtras() != null && i.getExtras().size() > 0)
                 .ifPresent(i -> {
                     if (i.getStringExtra(NEW_ITEM_INTENT) != null) {
@@ -31,7 +28,7 @@ public class ItemsActivityIntentResolver {
                 });
     }
 
-    public void setOnSharedContentIncomingHandler(OnSharedContentIncomingHandler onSharedContentIncomingHandler) {
+    public void onSharedContentIncoming(OnSharedContentIncomingHandler onSharedContentIncomingHandler) {
         this.onSharedContentIncomingHandler = onSharedContentIncomingHandler;
     }
 

@@ -22,10 +22,8 @@ public class IncomingDataObserverUtils {
     }
 
     static void notifyViews(Context context) {
-        IncomingDataObserverEvent incomingDataObserverEvent = new IncomingDataObserverEvent();
         //TODO analyza ci ma naozaj nove data alebo len prisli tie iste
-        incomingDataObserverEvent.setHasNewData(true);
-        EventBus.getDefault().post(incomingDataObserverEvent);
+        EventBus.getDefault().post(new IncomingDataObserverEvent(true));
     }
 
 }

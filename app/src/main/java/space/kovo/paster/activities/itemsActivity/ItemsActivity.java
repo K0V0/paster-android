@@ -2,17 +2,17 @@ package space.kovo.paster.activities.itemsActivity;
 
 import android.os.Bundle;
 import space.kovo.paster.R;
-import space.kovo.paster.activities.activity.BaseActivity;
+import space.kovo.paster._base.activity.BaseActivity;
 import space.kovo.paster.activities.itemsActivity.actions.ItemsActivityActions;
 import space.kovo.paster.activities.itemsActivity.eventsResolver.ItemsActivityEventsResolver;
 import space.kovo.paster.activities.itemsActivity.intentResolver.ItemsActivityIntentResolver;
-import space.kovo.paster.activities.itemsActivity.uiActionsResolver.UiActionsResolver;
+import space.kovo.paster.activities.itemsActivity.uiActionsResolver.ItemsActivityUiActionsResolver;
 
 public class ItemsActivity extends BaseActivity {
     private ItemsActivityEventsResolver eventsResolver;
     private ItemsActivityActions actions;
     private ItemsActivityIntentResolver intentResolver;
-    private UiActionsResolver uiActionsResolver;
+    private ItemsActivityUiActionsResolver itemsActivityUiActionsResolver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class ItemsActivity extends BaseActivity {
         this.actions = new ItemsActivityActions(this);
         this.eventsResolver = new ItemsActivityEventsResolver(this);
         this.intentResolver = new ItemsActivityIntentResolver(this);
-        this.uiActionsResolver = new UiActionsResolver(this);
+        this.itemsActivityUiActionsResolver = new ItemsActivityUiActionsResolver(this);
         inits();
     }
 
@@ -57,11 +57,12 @@ public class ItemsActivity extends BaseActivity {
     }
 
     private void inits() {
-        eventsResolver.onNewItems(() -> actions.refreshItems());
-        eventsResolver.onClipboardSet((itemId) -> actions.sendItemToClipboard(itemId));
-        intentResolver.setOnSharedContentIncomingHandler(text -> actions.sendItemToServer(text));
-        uiActionsResolver.setOnManualContentSubmit(text -> actions.sendItemToServer(text));
+        eventsResolver.onNewItems(items -> actions.refreshItems());
+        eventsResolver.onClipboardSet(itemId -> actions.sendItemToClipboard(itemId));
+        eventsResolver.onItemDelete(itemId -> actions.deleteItemFromServer(itemId));
+        intentResolver.onSharedContentIncoming(text -> actions.sendItemToServer(text));
+        itemsActivityUiActionsResolver.onManualContentSubmit(text -> actions.sendItemToServer(text));
         intentResolver.handle();
-        uiActionsResolver.handle();
+        itemsActivityUiActionsResolver.handle();
     }
 }

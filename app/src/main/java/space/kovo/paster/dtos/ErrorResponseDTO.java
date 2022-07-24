@@ -1,5 +1,7 @@
 package space.kovo.paster.dtos;
 
+import space.kovo.paster._base.dtos.ResponseDTO;
+
 import java.util.List;
 import java.util.Map;
 

@@ -1,11 +1,11 @@
-package space.kovo.paster.activities.activity;
+package space.kovo.paster._base.activity;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
-import space.kovo.paster.activities.activity.baseActivityRecieversHandlers.OnPoorOrNoConnectionHandler;
+import space.kovo.paster._base.activity.baseActivityRecieversHandlers.OnPoorOrNoConnectionHandler;
 import space.kovo.paster.services.connectivityService.ConnectivityService;
 import space.kovo.paster.services.connectivityService.ConnectivityServiceImpl;
 import space.kovo.paster.utils.Logging;
@@ -18,14 +18,6 @@ public class BaseActivityRecievers {
     public BaseActivityRecievers(Context context) {
         this.context = context;
         this.connectivityService = new ConnectivityServiceImpl(context);
-    }
-
-    public void registerRecievers() {
-        registerNetworkChangeReciever();
-    }
-
-    public void unregisterRecievers() {
-        unregisterNetworkChangeReciever();
     }
 
 

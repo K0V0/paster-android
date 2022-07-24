@@ -73,6 +73,15 @@ public final class ItemsActivityActionsUtil {
         }
     }
 
+    static void deleteFromServer(long itemId, ItemService itemService) {
+        try {
+            itemService.deleteItem(itemId);
+        } catch (JSONException e) {
+            //TODO
+            throw new RuntimeException(e);
+        }
+    }
+
     private static List<Integer> getHashCodes(List<ItemResponseDTO> itemResponseDTOs) {
         return itemResponseDTOs.stream()
                 .map(ItemResponseDTO::hashCode)

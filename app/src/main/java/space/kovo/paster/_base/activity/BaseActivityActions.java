@@ -1,4 +1,4 @@
-package space.kovo.paster.activities.activity;
+package space.kovo.paster._base.activity;
 
 import android.content.Context;
 import space.kovo.paster.R;
@@ -18,7 +18,4 @@ public class BaseActivityActions {
         dialog.show(R.string.app_no_internet_title, R.string.app_no_internet_text);
     }
 
-    public void sendItemToServer(String text) {
-
-    }
 }
