@@ -1,7 +1,7 @@
 package space.kovo.paster.dtos.itemDto;
 
 public class ItemRequestDTO {
-    private static final String PLATFORM = "android";
+    private static final String platform = "mobile_android";
     private String text;
 
     public String getText() {
@@ -13,7 +13,7 @@ public class ItemRequestDTO {
     }
 
     public String getPlatform() {
-        return PLATFORM;
+        return platform;
     }
 
 }

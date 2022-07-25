@@ -68,8 +68,6 @@ u
 Eapp/src/main/java/space/kovo/paster/ui/notification/Notification.java,9/0/90c3bd10ac3c8aa6c318d4fa8d71e99d78a29c24
 y
 Iapp/src/main/java/space/kovo/paster/ui/notification/NotificationImpl.java,5/3/530545d94e05d8aeb028b0953c9950765efced5e
-t
-Dapp/src/main/java/space/kovo/paster/dtos/itemDto/ItemRequestDTO.java,8/f/8fbf0b8bf94c8329fda439aff6d4cee7c0c9c7b6
 y
 Iapp/src/main/java/space/kovo/paster/repositories/item/ItemRepository.java,8/6/864ba6cb2a853722e607dcb72ae2811c19297a5b
 P

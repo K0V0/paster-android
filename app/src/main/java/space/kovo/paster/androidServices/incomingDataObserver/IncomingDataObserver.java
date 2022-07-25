@@ -74,11 +74,8 @@ public class IncomingDataObserver extends Service {
             public void success(ItemsResponseDTO itemsResponseDTO) {
                 Logging.log("backgroundService: IncomingDataObserver", "itemService: data loaded");
                 processResults(itemsResponseDTO, itemRepository);
-                boolean hasNewData = serveClipboard(itemsResponseDTO, itemRepository, clipboardService);
-                if (hasNewData) {
-                    Logging.log("backgroundService: IncomingDataObserver", "itemService: data are new");
-                    notifyViews();
-                }
+                serveClipboard(itemsResponseDTO, itemRepository, clipboardService);
+                notifyViews();
             }
             @Override
             public void fail(ErrorResponseDTO itemErrorResponseDTO) {
