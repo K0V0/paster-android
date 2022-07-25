@@ -22,11 +22,7 @@ Wapp/src/main/java/space/kovo/paster/services/websocketService/ChangeTriggerHand
 F
 app/proguard-rules.pro,9/e/9e08934d811afe28fbc77aaa3c0d747b94348db9
 w
-G.idea/sonarlint/issuestore/8/e/8e35a636add47e691e22076eddddc866d0d62422,9/f/9f4fe510df6f21a8349f3986c7337916c04403af
-w
 G.idea/sonarlint/issuestore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d,b/4/b4a0b63ce8560bbc5de0f9995c20cc861dc2adb3
-w
-G.idea/sonarlint/issuestore/8/c/8c351114e54d47848418ddf7bd519573edd0da19,3/8/386ed94000b637f50b087b53ae75b195a978d6ba
 <
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
 :
@@ -42,8 +38,6 @@ X
 gradlew,5/b/5bbfa66edb4db3c7c33c5181f43510990d3307f9
 ;
 gradlew.bat,2/a/2a45a911a8f1836b0b6c5b758962572012d8f8c3
-w
-G.idea/sonarlint/issuestore/d/1/d1e048c8ef3b04da10b6b72070cb4293d03295bf,8/9/895f45f0a9a791c580196f9c6b5151b288f4d404
 w
 Gapp/src/androidTest/java/space/kovo/paster/ExampleInstrumentedTest.java,d/7/d708c12d57218f0260c8ce2a98d6a5528bbad2c2
 h
@@ -62,8 +56,6 @@ capp/src/main/java/space/kovo/paster/services/sharedPreferencesService/SharedPre
 gapp/src/main/java/space/kovo/paster/services/sharedPreferencesService/SharedPreferencesServiceImpl.java,5/2/52c0be2eed91ff92f7d0a456d192a7d4ffa2a2cf
 ‘
 aapp/src/main/java/space/kovo/paster/androidServices/clipboardObserver/ClipboardObserverUtils.java,3/8/38f9b5871b4c38054e5bf8eeb8e46a6bb49a9e2c
-¦
-vapp/src/main/java/space/kovo/paster/activities/activity/baseActivityRecieversHandlers/OnPoorOrNoConnectionHandler.java,1/2/124ac8e627181595388e2881154f49dce647b316
 i
 9app/src/main/java/space/kovo/paster/ui/dialog/Dialog.java,c/0/c00357c766793160fd5c3494437556ecb1407777
 @
@@ -78,14 +70,8 @@ y
 Iapp/src/main/java/space/kovo/paster/ui/notification/NotificationImpl.java,5/3/530545d94e05d8aeb028b0953c9950765efced5e
 t
 Dapp/src/main/java/space/kovo/paster/dtos/itemDto/ItemRequestDTO.java,8/f/8fbf0b8bf94c8329fda439aff6d4cee7c0c9c7b6
-ƒ
-Sapp/src/main/java/space/kovo/paster/services/clipboardService/ClipboardService.java,0/7/07aa1264426cc64b9fa29b3a4b8c4ac68587dd3c
-
-`app/src/main/java/space/kovo/paster/services/clipboardService/ClipboardServiceChangeHandler.java,9/7/9754f992c7eb6aa86f73226159e01c55e1f5a40a
 y
 Iapp/src/main/java/space/kovo/paster/repositories/item/ItemRepository.java,8/6/864ba6cb2a853722e607dcb72ae2811c19297a5b
-‡
-Wapp/src/main/java/space/kovo/paster/services/clipboardService/ClipboardServiceImpl.java,1/3/139f3f1d8f1d9ffe529607448a4bde59aee2c051
 P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 }
@@ -100,18 +86,10 @@ Oapp/src/main/java/space/kovo/paster/services/loginService/LoginServiceImpl.java
 `app/src/main/java/space/kovo/paster/services/websocketService/ChangesWatcherWebsocketClient.java,f/1/f1070e0955e6de79af5939c4428868c396ecdb1b
 ‡
 Wapp/src/main/java/space/kovo/paster/services/websocketService/WebsocketServiceImpl.java,9/1/919afe9b082e63d90524591191c3d716fb696a13
-’
-bapp/src/main/java/space/kovo/paster/androidServices/incomingDataObserver/IncomingDataObserver.java,4/a/4af9c475bf97a55703cfa2d07f970745e1c04df6
-€
-Papp/src/main/java/space/kovo/paster/activities/activity/BaseActivityBinders.java,c/d/cdac7c834114c7ba3a81ca1dcce5224a8c9eec85
-‚
-Rapp/src/main/java/space/kovo/paster/activities/activity/BaseActivityRecievers.java,8/8/88d92a5899e147f8c30425bce8e63f1dffa58a25
 „
 Tapp/src/main/java/space/kovo/paster/activities/mainActivity/MainActivityActions.java,4/a/4a1ce3572ece00ffcda254e0425bd4fb7349bbee
 †
 Vapp/src/main/java/space/kovo/paster/services/httpService/HttpErrorResponseHandler.java,0/0/00f14d4d985dc6c978e721822995c740651c3686
-
-Oapp/src/main/java/space/kovo/paster/_base/interfaces/EventsResolverHandler.java,a/a/aadbb211b472571b02daa1916115d955134bf7b9
 „
 Tapp/src/main/java/space/kovo/paster/services/httpService/HttpRequestServiceUtil.java,8/d/8d172152a4f5ef29eb37399d4aeac8ef60fd4728
 ¢

@@ -12,17 +12,22 @@ public class IncomingDataObserverUtils {
         itemRepository.saveAll(results.getItems());
     }
 
-    static void serveClipboard(ItemsResponseDTO results, ItemRepository itemRepository, ClipboardService clipboardService) {
+    static boolean serveClipboard(ItemsResponseDTO results, ItemRepository itemRepository, ClipboardService clipboardService) {
         //TODO vazny problem navrhu
         // ak bolo zariadenie pretym offline a v clipboarde je novsi obsah, bude premaznuty
         // pridat check podla timestamp alebo ina metoda
-        itemRepository
+        return itemRepository
                 .findLatest()
-                .ifPresent(item -> clipboardService.addToClipboard(item.getText()));
+                .map(item -> item.getText())
+                .filter(text -> !clipboardService.isCurrent(text))
+                .map(text -> {
+                    clipboardService.addToClipboard(text);
+                    return true;
+                })
+                .orElse(false);
     }
 
-    static void notifyViews(Context context) {
-        //TODO analyza ci ma naozaj nove data alebo len prisli tie iste
+    static void notifyViews() {
         EventBus.getDefault().post(new IncomingDataObserverEvent(true));
     }
 
