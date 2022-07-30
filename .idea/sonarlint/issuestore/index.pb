@@ -23,8 +23,6 @@ F
 app/proguard-rules.pro,9/e/9e08934d811afe28fbc77aaa3c0d747b94348db9
 w
 G.idea/sonarlint/issuestore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d,b/4/b4a0b63ce8560bbc5de0f9995c20cc861dc2adb3
-<
-build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
@@ -32,8 +30,6 @@ G.idea/sonarlint/issuestore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d,b/4/b4
 settings.gradle,0/5/05efc8b1657769a27696d478ded1e95f38737233
 A
 gradle.properties,2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4
-X
-(gradle/wrapper/gradle-wrapper.properties,f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
 7
 gradlew,5/b/5bbfa66edb4db3c7c33c5181f43510990d3307f9
 ;
@@ -92,3 +88,15 @@ Vapp/src/main/java/space/kovo/paster/services/httpService/HttpErrorResponseHandl
 Tapp/src/main/java/space/kovo/paster/services/httpService/HttpRequestServiceUtil.java,8/d/8d172152a4f5ef29eb37399d4aeac8ef60fd4728
 ¢
 rapp/src/main/java/space/kovo/paster/activities/itemsActivity/uiActionsResolver/handlers/OnManualContentSubmit.java,1/4/14e345cf523817ba235698fc9f67693433b21a72
+ƒ
+Sapp/src/main/java/space/kovo/paster/services/clipboardService/ClipboardService.java,0/7/07aa1264426cc64b9fa29b3a4b8c4ac68587dd3c
+’
+bapp/src/main/java/space/kovo/paster/androidServices/incomingDataObserver/IncomingDataObserver.java,4/a/4af9c475bf97a55703cfa2d07f970745e1c04df6
+‡
+Wapp/src/main/java/space/kovo/paster/services/clipboardService/ClipboardServiceImpl.java,1/3/139f3f1d8f1d9ffe529607448a4bde59aee2c051
+}
+Mapp/src/main/java/space/kovo/paster/services/itemService/ItemServiceImpl.java,3/e/3e93e7ee92b2e729626e9e4c0e1254b550152923
+—
+gapp/src/main/java/space/kovo/paster/androidServices/incomingDataObserver/IncomingDataObserverUtils.java,0/9/09f15b19750e53dbbc4380713b9f2aca2fd8009b
+t
+Dapp/src/main/java/space/kovo/paster/dtos/itemDto/ItemRequestDTO.java,8/f/8fbf0b8bf94c8329fda439aff6d4cee7c0c9c7b6

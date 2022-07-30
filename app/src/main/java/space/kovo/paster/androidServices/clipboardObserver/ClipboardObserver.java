@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import org.greenrobot.eventbus.EventBus;
 import org.json.JSONException;
+import space.kovo.paster.R;
 import space.kovo.paster.repositories.item.ItemGlobalVariablesRepository;
 import space.kovo.paster.repositories.item.ItemRepository;
 import space.kovo.paster.services.clipboardService.ClipboardService;
@@ -23,6 +24,7 @@ import space.kovo.paster.utils.Logging;
 
 public class ClipboardObserver extends Service {
     private static final String CHANNEL_ID = "2000";
+    private static final String CHANNEL_NAME = "pasterNotification";
 
     private ClipboardObserverBinder binder = new ClipboardObserverBinder();
     private ItemService itemService;
@@ -73,14 +75,14 @@ public class ClipboardObserver extends Service {
         //TODO nastavenia channel ine ako test
         //TODO mozno netreba, od android 10 je aj tak monitorovanie clipboardu na pozadi zakazane
         int importance = NotificationManager.IMPORTANCE_DEFAULT;
-        NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "test", importance);
-        channel.setDescription("test");
+        NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_NAME, importance);
+        channel.setDescription(CHANNEL_NAME);
         NotificationManager notificationManager = getSystemService(NotificationManager.class);
         notificationManager.createNotificationChannel(channel);
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle("title")
                 .setContentText("text")
-                //.setSmallIcon(R.drawable.baseline_pause_white_24)
+                .setSmallIcon(R.drawable.ic_stat_name)
                 .build();
         startForeground(2, notification);
     }
