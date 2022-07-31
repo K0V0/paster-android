@@ -1,6 +1,6 @@
 package space.kovo.paster.dtos.loginDto;
 
-import space.kovo.paster._base.dtos.ResponseDTO;
+import space.kovo.paster.base.dtos.ResponseDTO;
 
 public class LoginResponseDTO extends ResponseDTO {
 

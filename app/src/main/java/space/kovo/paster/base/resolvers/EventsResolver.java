@@ -1,7 +1,7 @@
-package space.kovo.paster._base.resolvers;
+package space.kovo.paster.base.resolvers;
 
 import android.content.Context;
-import space.kovo.paster._base.eventBus.Event;
+import space.kovo.paster.base.eventBus.Event;
 
 import java.util.Optional;
 

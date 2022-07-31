@@ -1,4 +1,4 @@
-package space.kovo.paster._base.eventBus;
+package space.kovo.paster.base.eventBus;
 
 public abstract class Event<DATA_TYPE> {
 

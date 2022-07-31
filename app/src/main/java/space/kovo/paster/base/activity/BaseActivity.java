@@ -1,4 +1,4 @@
-package space.kovo.paster._base.activity;
+package space.kovo.paster.base.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,6 +31,7 @@ public class BaseActivity extends AppCompatActivity {
         super.onResume();
         EventBus.getDefault().register(this);
         recievers.registerNetworkChangeReciever();
+        //recievers.registerCloseAppReciever();
     }
 
     @Override
@@ -38,11 +39,17 @@ public class BaseActivity extends AppCompatActivity {
         super.onPause();
         EventBus.getDefault().unregister(this);
         recievers.unregisterNetworkChangeReciever();
+        //recievers.unregisterCloseAppReciever();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
+    }
+
+    protected void onDestroy() {
+        super.onDestroy();
+        System.exit(0);
     }
 
     @Override
@@ -57,6 +64,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     private void inits() {
-        recievers.setOnPoorOrNoConnectionHandler(() -> actions.showDialogIfInternetNoneOrPoor());
+        recievers.setOnPoorOrNoConnectionHandler(actions::showDialogIfInternetNoneOrPoor);
+        //recievers.setOnCloseCommandRecievedHandler(this::finishAffinity);
     }
 }

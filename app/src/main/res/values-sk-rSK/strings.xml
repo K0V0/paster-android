@@ -14,4 +14,9 @@
         nízka. Skontrolujte prosím pripojenie k internetu.
     </string>
     <string name="item_copied_to_clipboard">Položka skopírovaná do schránky</string>
+    <string name="notification_running_title">Synchronizácia schránky je spustená</string>
+    <string name="notification_running_text">Nástroj na synchronizáciu schránky na kopírovanie/vkladanie textu beží. Pre
+        pozastavenie synchronizácie ju deaktivujte alebo ukončite aplikáciu.
+    </string>
+    <string name="notification_button_close_app">Ukončiť aplikáciu</string>
 </resources>

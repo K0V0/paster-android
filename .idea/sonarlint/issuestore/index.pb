@@ -66,8 +66,6 @@ y
 Iapp/src/main/java/space/kovo/paster/ui/notification/NotificationImpl.java,5/3/530545d94e05d8aeb028b0953c9950765efced5e
 y
 Iapp/src/main/java/space/kovo/paster/repositories/item/ItemRepository.java,8/6/864ba6cb2a853722e607dcb72ae2811c19297a5b
-P
- app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 }
 Mapp/src/main/java/space/kovo/paster/intentServices/GetShareIntentService.java,a/a/aa0fa875c1122a61a356dd245467cf2550e28975
 f
@@ -80,8 +78,6 @@ Oapp/src/main/java/space/kovo/paster/services/loginService/LoginServiceImpl.java
 `app/src/main/java/space/kovo/paster/services/websocketService/ChangesWatcherWebsocketClient.java,f/1/f1070e0955e6de79af5939c4428868c396ecdb1b
 ‡
 Wapp/src/main/java/space/kovo/paster/services/websocketService/WebsocketServiceImpl.java,9/1/919afe9b082e63d90524591191c3d716fb696a13
-„
-Tapp/src/main/java/space/kovo/paster/activities/mainActivity/MainActivityActions.java,4/a/4a1ce3572ece00ffcda254e0425bd4fb7349bbee
 †
 Vapp/src/main/java/space/kovo/paster/services/httpService/HttpErrorResponseHandler.java,0/0/00f14d4d985dc6c978e721822995c740651c3686
 „
@@ -100,3 +96,7 @@ Mapp/src/main/java/space/kovo/paster/services/itemService/ItemServiceImpl.java,
 gapp/src/main/java/space/kovo/paster/androidServices/incomingDataObserver/IncomingDataObserverUtils.java,0/9/09f15b19750e53dbbc4380713b9f2aca2fd8009b
 t
 Dapp/src/main/java/space/kovo/paster/dtos/itemDto/ItemRequestDTO.java,8/f/8fbf0b8bf94c8329fda439aff6d4cee7c0c9c7b6
+<
+build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
+X
+(gradle/wrapper/gradle-wrapper.properties,f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e

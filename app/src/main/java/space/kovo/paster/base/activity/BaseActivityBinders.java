@@ -1,4 +1,4 @@
-package space.kovo.paster._base.activity;
+package space.kovo.paster.base.activity;
 
 import android.content.ComponentName;
 import android.content.Context;

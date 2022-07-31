@@ -1,4 +1,4 @@
-package space.kovo.paster._base.dtos;
+package space.kovo.paster.base.dtos;
 
 import space.kovo.paster.dtos.ErrorResponseDTO;
 

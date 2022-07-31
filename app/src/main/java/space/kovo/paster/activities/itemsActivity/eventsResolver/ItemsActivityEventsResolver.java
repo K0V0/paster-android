@@ -1,7 +1,7 @@
 package space.kovo.paster.activities.itemsActivity.eventsResolver;
 
 import android.content.Context;
-import space.kovo.paster._base.resolvers.EventsResolver;
+import space.kovo.paster.base.resolvers.EventsResolver;
 import space.kovo.paster.activities.itemsActivity.eventsResolver.handlers.ItemsActivityClipboardChangeEventHandler;
 import space.kovo.paster.activities.itemsActivity.eventsResolver.handlers.ItemsActivityItemDeleteEventHandler;
 import space.kovo.paster.activities.itemsActivity.eventsResolver.handlers.ItemsActivityItemSetToClipboardEventHandler;

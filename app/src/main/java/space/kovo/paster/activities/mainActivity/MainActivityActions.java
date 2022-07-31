@@ -23,6 +23,12 @@ public class MainActivityActions {
     }
 
     public void decideActionAfterStart() {
+        Optional.ofNullable(((Activity)context).getIntent())
+                .filter(i -> i.getAction().equals("close_app"))
+                .ifPresent(i -> {
+                    ((Activity)context).finishAffinity();
+                    System.exit(0);
+                });
         if (loginService.isLoggedIn()) {
             startItemsActivity();
         } else {

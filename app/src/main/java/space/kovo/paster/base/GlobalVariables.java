@@ -1,4 +1,4 @@
-package space.kovo.paster._base;
+package space.kovo.paster.base;
 
 import space.kovo.paster.dtos.itemDto.ItemResponseDTO;
 

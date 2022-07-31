@@ -2,7 +2,7 @@ package space.kovo.paster.activities.itemsActivity;
 
 import android.os.Bundle;
 import space.kovo.paster.R;
-import space.kovo.paster._base.activity.BaseActivity;
+import space.kovo.paster.base.activity.BaseActivity;
 import space.kovo.paster.activities.itemsActivity.actions.ItemsActivityActions;
 import space.kovo.paster.activities.itemsActivity.eventsResolver.ItemsActivityEventsResolver;
 import space.kovo.paster.activities.itemsActivity.intentResolver.ItemsActivityIntentResolver;

@@ -1,19 +1,22 @@
-package space.kovo.paster._base.activity;
+package space.kovo.paster.base.activity;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
-import space.kovo.paster._base.activity.baseActivityRecieversHandlers.OnPoorOrNoConnectionHandler;
+import space.kovo.paster.base.activity.baseActivityRecieversHandlers.OnCloseCommandRecievedHandler;
+import space.kovo.paster.base.activity.baseActivityRecieversHandlers.OnPoorOrNoConnectionHandler;
 import space.kovo.paster.services.connectivityService.ConnectivityService;
 import space.kovo.paster.services.connectivityService.ConnectivityServiceImpl;
 import space.kovo.paster.utils.Logging;
 
 public class BaseActivityRecievers {
+    private static final String CLOSE_APP_INTENT_ACTION = "close_app";
     private final Context context;
     private final ConnectivityService connectivityService;
     private OnPoorOrNoConnectionHandler onPoorOrNoConnectionHandler;
+    private OnCloseCommandRecievedHandler onCloseCommandRecievedHandler;
 
     public BaseActivityRecievers(Context context) {
         this.context = context;
@@ -35,6 +38,17 @@ public class BaseActivityRecievers {
         this.onPoorOrNoConnectionHandler = onPoorOrNoConnectionHandler;
     }
 
+    public void registerCloseAppReciever() {
+        Logging.log("baseActivityRecievers: closeAppReciever", "reciever registered");
+        context.registerReceiver(closeAppReciever, new IntentFilter(CLOSE_APP_INTENT_ACTION));
+    }
+
+    public void unregisterCloseAppReciever() { context.unregisterReceiver(closeAppReciever); }
+
+    public void setOnCloseCommandRecievedHandler(OnCloseCommandRecievedHandler onCloseCommandRecievedHandler) {
+        this.onCloseCommandRecievedHandler = onCloseCommandRecievedHandler;
+    }
+
 
 
     private BroadcastReceiver networkChangeReceiver = new BroadcastReceiver() {
@@ -47,6 +61,14 @@ public class BaseActivityRecievers {
                     onPoorOrNoConnectionHandler.onPoorOrNoConnection();
                 }
             }
+        }
+    };
+
+    private BroadcastReceiver closeAppReciever = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Logging.log("baseActivityRecievers: closeAppREciever", "instruction for app termination recieved");
+            onCloseCommandRecievedHandler.onClose();
         }
     };
 

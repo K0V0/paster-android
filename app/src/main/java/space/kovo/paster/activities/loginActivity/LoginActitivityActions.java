@@ -7,7 +7,7 @@ import android.widget.EditText;
 import org.json.JSONException;
 import space.kovo.paster.R;
 import space.kovo.paster.activities.itemsActivity.ItemsActivity;
-import space.kovo.paster._base.dtos.DtoUtil;
+import space.kovo.paster.base.dtos.DtoUtil;
 import space.kovo.paster.dtos.ErrorResponseDTO;
 import space.kovo.paster.dtos.loginDto.LoginResponseDTO;
 import space.kovo.paster.services.loginService.LoginResponseHandler;

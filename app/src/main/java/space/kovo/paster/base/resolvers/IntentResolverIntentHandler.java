@@ -1,4 +1,4 @@
-package space.kovo.paster._base.resolvers;
+package space.kovo.paster.base.resolvers;
 
 public interface IntentResolverIntentHandler<DATA> {
 
