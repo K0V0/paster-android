@@ -1,0 +1,9 @@
+
+|
+java:S1450"_Remove the "delayMiliseconds" field and declare it as a local variable in the relevant methods.(ßö‰Ð8íÒÃÜ›0
+i
+java:S3252?"NUse static access with "android.content.DialogInterface" for "BUTTON_NEUTRAL".(½ú¶•ûÿÿÿÿ
+E
+java:S1874G"/Remove this use of "Handler"; it is deprecated.(“¥Âó
+J
+java:S1068"4Remove this unused "delayMiliseconds" private field.(ßö‰Ð

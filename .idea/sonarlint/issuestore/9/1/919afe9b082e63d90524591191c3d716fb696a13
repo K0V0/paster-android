@@ -1,0 +1,10 @@
+
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÁÑë
+G
+java:S1135"2Complete the task associated to this TODO comment.(àÂ2
+O
+java:S1128"-Remove this unused import 'android.util.Log'.(Ô¦Ø²øÿÿÿÿ8ü‹¯ß›0
+U
+java:S1128"3Remove this unused import 'org.json.JSONException'.(¹Ó·úÿÿÿÿ8ı‹¯ß›0
+A
+java:S1068"+Remove this unused "context" private field.(¨îÑÙ

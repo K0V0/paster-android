@@ -1,0 +1,26 @@
+
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(°†‘Ó
+Z
+java:S2095+"DUse try-with-resources or close this "Socket" in a "finally" clause.(÷Æ³‘
+G
+java:S3599",Use another way to initialize this instance.(´›øÿÿÿÿ
+t
+java:S1171"YMove the contents of this initializer to a standard constructor or to field initializers.(´›øÿÿÿÿ
+I
+java:S1874"3Remove this use of "TYPE_MOBILE"; it is deprecated.(Œ‡‰Œ
+K
+java:S1874"5Remove this use of "TYPE_ETHERNET"; it is deprecated.(­È–Î
+M
+java:S1874"7Remove this use of "TYPE_MOBILE_DUN"; it is deprecated.(¢üŸ
+F
+java:S1874"1Remove this use of "TYPE_WIFI"; it is deprecated.(—Ñÿv
+M
+java:S1874"2Remove this use of "TYPE_WIMAX"; it is deprecated.(ÌÙšÁÿÿÿÿÿ
+R
+java:S1874!"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(ÓÒ“
+N
+java:S1874""3Remove this use of "NetworkInfo"; it is deprecated.(œÁ­ªıÿÿÿÿ
+J
+java:S1874""/Remove this use of "getType"; it is deprecated.(œÁ­ªıÿÿÿÿ
+H
+java:S1135'"2Complete the task associated to this TODO comment.(ÕÜ…
