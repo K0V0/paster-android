@@ -6,7 +6,6 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
-import android.app.TaskStackBuilder;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.Build;
@@ -17,7 +16,6 @@ import org.greenrobot.eventbus.EventBus;
 import org.json.JSONException;
 import space.kovo.paster.R;
 import space.kovo.paster.activities.mainActivity.MainActivity;
-import space.kovo.paster.base.activity.BaseActivity;
 import space.kovo.paster.repositories.item.ItemGlobalVariablesRepository;
 import space.kovo.paster.repositories.item.ItemRepository;
 import space.kovo.paster.services.clipboardService.ClipboardService;
@@ -71,6 +69,7 @@ public class ClipboardObserver extends Service {
 
     @Override
     public void onDestroy() {
+        stopSelf();
         Logging.log("backgroundService: ClipboardObserver", "destroyed");
     }
 

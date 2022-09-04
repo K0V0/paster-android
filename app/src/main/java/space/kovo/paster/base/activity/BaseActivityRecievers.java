@@ -38,17 +38,6 @@ public class BaseActivityRecievers {
         this.onPoorOrNoConnectionHandler = onPoorOrNoConnectionHandler;
     }
 
-    public void registerCloseAppReciever() {
-        Logging.log("baseActivityRecievers: closeAppReciever", "reciever registered");
-        context.registerReceiver(closeAppReciever, new IntentFilter(CLOSE_APP_INTENT_ACTION));
-    }
-
-    public void unregisterCloseAppReciever() { context.unregisterReceiver(closeAppReciever); }
-
-    public void setOnCloseCommandRecievedHandler(OnCloseCommandRecievedHandler onCloseCommandRecievedHandler) {
-        this.onCloseCommandRecievedHandler = onCloseCommandRecievedHandler;
-    }
-
 
 
     private BroadcastReceiver networkChangeReceiver = new BroadcastReceiver() {
@@ -61,14 +50,6 @@ public class BaseActivityRecievers {
                     onPoorOrNoConnectionHandler.onPoorOrNoConnection();
                 }
             }
-        }
-    };
-
-    private BroadcastReceiver closeAppReciever = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Logging.log("baseActivityRecievers: closeAppREciever", "instruction for app termination recieved");
-            onCloseCommandRecievedHandler.onClose();
         }
     };
 

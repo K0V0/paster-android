@@ -5,11 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import space.kovo.paster.activities.itemsActivity.ItemsActivity;
 import space.kovo.paster.activities.loginActivity.LoginActivity;
-import space.kovo.paster.services.connectivityService.ConnectivityService;
-import space.kovo.paster.services.connectivityService.ConnectivityServiceImpl;
 import space.kovo.paster.services.loginService.LoginService;
 import space.kovo.paster.services.loginService.LoginServiceImpl;
-import space.kovo.paster.utils.Logging;
 
 import java.util.Optional;
 

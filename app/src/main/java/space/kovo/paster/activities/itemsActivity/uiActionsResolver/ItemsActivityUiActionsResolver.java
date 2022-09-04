@@ -3,9 +3,9 @@ package space.kovo.paster.activities.itemsActivity.uiActionsResolver;
 import android.content.Context;
 import android.widget.EditText;
 import space.kovo.paster.R;
-import space.kovo.paster.base.resolvers.UiActionsResolver;
 import space.kovo.paster.activities.itemsActivity.ItemsActivity;
 import space.kovo.paster.activities.itemsActivity.uiActionsResolver.handlers.OnManualContentSubmit;
+import space.kovo.paster.base.resolvers.UiActionsResolver;
 
 public class ItemsActivityUiActionsResolver extends UiActionsResolver<ItemsActivity> {
 

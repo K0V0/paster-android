@@ -1,5 +1,6 @@
 package space.kovo.paster.base.activity;
 
+import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -41,6 +42,7 @@ public class BaseActivityBinders {
         Logging.log("baseActivityBinders: bindIncomingDataObserver", "binder unbinded");
         context.unbindService(incomingDataObserverServiceConnection);
     }
+    public void destroyIncomingDataObserver() { destroyService(incomingDataObserver); }
 
     public ClipboardObserver getClipboardObserver() {
         return clipboardObserver;
@@ -57,6 +59,8 @@ public class BaseActivityBinders {
         Logging.log("baseActivityBinders: bindClipboardObserver", "binder unbinded");
         context.unbindService(clipboardObserverServiceConnection);
     }
+    public void destroyClipboardObserver() { destroyService(clipboardObserver); }
+
 
 
 
@@ -85,4 +89,10 @@ public class BaseActivityBinders {
             clipboardObserverIsBound = false;
         }
     };
+
+    private static void destroyService(Service service) {
+        if (service != null) {
+            service.onDestroy();
+        }
+    }
 }

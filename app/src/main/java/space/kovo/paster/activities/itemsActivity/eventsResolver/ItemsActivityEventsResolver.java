@@ -1,7 +1,6 @@
 package space.kovo.paster.activities.itemsActivity.eventsResolver;
 
 import android.content.Context;
-import space.kovo.paster.base.resolvers.EventsResolver;
 import space.kovo.paster.activities.itemsActivity.eventsResolver.handlers.ItemsActivityClipboardChangeEventHandler;
 import space.kovo.paster.activities.itemsActivity.eventsResolver.handlers.ItemsActivityItemDeleteEventHandler;
 import space.kovo.paster.activities.itemsActivity.eventsResolver.handlers.ItemsActivityItemSetToClipboardEventHandler;
@@ -10,6 +9,7 @@ import space.kovo.paster.activities.itemsActivity.recyclerView.emittedEvents.Ite
 import space.kovo.paster.activities.itemsActivity.recyclerView.emittedEvents.ItemsAdapterSetToClipboardEvent;
 import space.kovo.paster.androidServices.clipboardObserver.ClipboardObserverEvent;
 import space.kovo.paster.androidServices.incomingDataObserver.IncomingDataObserverEvent;
+import space.kovo.paster.base.resolvers.EventsResolver;
 
 import java.util.Optional;
 

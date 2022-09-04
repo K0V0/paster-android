@@ -1,9 +1,9 @@
 package space.kovo.paster.activities.itemsActivity.intentResolver;
 
 import android.content.Context;
-import space.kovo.paster.base.resolvers.IntentResolver;
 import space.kovo.paster.activities.itemsActivity.ItemsActivity;
 import space.kovo.paster.activities.itemsActivity.intentResolver.handlers.OnSharedContentIncomingHandler;
+import space.kovo.paster.base.resolvers.IntentResolver;
 import space.kovo.paster.utils.Logging;
 
 import java.util.Optional;

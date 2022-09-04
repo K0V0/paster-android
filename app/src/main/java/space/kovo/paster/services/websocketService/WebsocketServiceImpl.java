@@ -1,8 +1,6 @@
 package space.kovo.paster.services.websocketService;
 
 import android.content.Context;
-import android.util.Log;
-import org.json.JSONException;
 import space.kovo.paster.services.sharedPreferencesService.SharedPreferencesService;
 import space.kovo.paster.services.sharedPreferencesService.SharedPreferencesServiceImpl;
 import space.kovo.paster.utils.Logging;

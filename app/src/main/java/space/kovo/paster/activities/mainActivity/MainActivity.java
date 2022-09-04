@@ -1,7 +1,6 @@
 package space.kovo.paster.activities.mainActivity;
 
 import android.os.Bundle;
-import org.greenrobot.eventbus.EventBus;
 import space.kovo.paster.R;
 import space.kovo.paster.base.activity.BaseActivity;
 

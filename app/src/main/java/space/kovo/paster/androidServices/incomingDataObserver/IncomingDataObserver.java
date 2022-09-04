@@ -65,6 +65,7 @@ public class IncomingDataObserver extends Service {
 
     @Override
     public void onDestroy() {
+        stopSelf();
         Logging.log("backgroundService: IncomingDataObserver", "destroyed");
     }
 

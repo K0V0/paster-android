@@ -31,7 +31,6 @@ public class BaseActivity extends AppCompatActivity {
         super.onResume();
         EventBus.getDefault().register(this);
         recievers.registerNetworkChangeReciever();
-        //recievers.registerCloseAppReciever();
     }
 
     @Override
@@ -39,7 +38,6 @@ public class BaseActivity extends AppCompatActivity {
         super.onPause();
         EventBus.getDefault().unregister(this);
         recievers.unregisterNetworkChangeReciever();
-        //recievers.unregisterCloseAppReciever();
     }
 
     @Override
@@ -49,7 +47,8 @@ public class BaseActivity extends AppCompatActivity {
 
     protected void onDestroy() {
         super.onDestroy();
-        System.exit(0);
+        binders.destroyClipboardObserver();
+        binders.destroyIncomingDataObserver();
     }
 
     @Override
