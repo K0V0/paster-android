@@ -15,6 +15,8 @@ public class IncomingDataObserverUtils {
         //TODO vazny problem navrhu
         // ak bolo zariadenie pretym offline a v clipboarde je novsi obsah, bude premaznuty
         // pridat check podla timestamp alebo ina metoda
+        // pripadne nech appka zacne pracovat az vtedy, kedy bolo do cloudu vlozene nieco az po jej spusteni
+        // pripadne explicitne vyziadany refresh
         itemRepository
                 .findLatest()
                 .map(item -> item.getText())

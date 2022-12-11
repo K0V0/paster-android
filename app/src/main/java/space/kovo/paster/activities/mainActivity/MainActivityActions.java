@@ -3,6 +3,7 @@ package space.kovo.paster.activities.mainActivity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import space.kovo.paster.activities.itemsActivity.ItemsActivity;
 import space.kovo.paster.activities.loginActivity.LoginActivity;
 import space.kovo.paster.services.loginService.LoginService;
@@ -45,6 +46,14 @@ public class MainActivityActions {
     }
 
     private Optional<String> getDataFromShareActionResult() {
+
+        //FIXME toto je vstupny bod pre veci zdielane cez "odoslat do..." ponuku
+        // obrazok pride - prehodnotit implementaciu ktora sa stara o zachytenie intents - vide nedokoncena background servica
+        Intent intent = ((Activity)context).getIntent();
+        Uri uri = intent.getData();
+        String action = intent.getAction();
+        String type = intent.getType();
+
         return Optional.ofNullable(((Activity)context).getIntent())
                 .filter(i -> i.getAction().equals("android.intent.action.SEND"))
                 .filter(i -> i.getType() != null)

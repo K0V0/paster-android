@@ -28,7 +28,7 @@ public class ClipboardObserver extends Service {
     private static final String CHANNEL_ID = "2000";
     private static final String CHANNEL_NAME = "pasterNotification";
 
-    private ClipboardObserverBinder binder = new ClipboardObserverBinder();
+    private ClipboardObserverBinder binder = new ClipboardObserverBinder();//send to application
     private ItemService itemService;
     private ItemRepository itemRepository;
     private ClipboardService clipboardService;

@@ -7,6 +7,8 @@ import space.kovo.paster.utils.Logging;
 
 import java.util.Optional;
 
+
+//TODO zaspominat preco vznikla a ci ma byt dokoncena tato servica
 public class GetShareIntentService extends IntentService {
 
 
